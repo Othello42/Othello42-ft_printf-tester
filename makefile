@@ -15,9 +15,9 @@ TEST_FILES =	temp_dprintf \
 MAN_START =		1
 MAN_END =		74
 BON_START =		100
-BON_END =		147
-TEST_START =	100
-TEST_END =		150
+BON_END =		159
+TEST_START =	113
+TEST_END =		123
 
 all: header headman man headbon bon
 
@@ -50,7 +50,7 @@ bon:
 test: header
 	@number=$(TEST_START); while [[ $$number -le $(TEST_END) ]] ; do \
 	$(CC) $(CFLAGS) frame.c -DFRAME=0 -DTEST=$$number && ./a.out; \
-	$(CC) $(CFLAGS) $(TEST_SRC) $(SRC) -DFRAME=0 -DTEST=$$number && ./a.out > temp_ft_printf; \
+	$(CC) $(TEST_SRC) $(SRC) -DFRAME=0 -DTEST=$$number && ./a.out > temp_ft_printf; \
 	$(CC) $(CFLAGS) strings_compare.c -DFRAME=0 -DTEST=$$number && ./a.out; \
 	((number = number + 1)) ; \
 	done

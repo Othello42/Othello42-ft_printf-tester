@@ -7,7 +7,7 @@
 #if TEST >= 0 && TEST < 100
 # define NAMESIZE "%-14s" 
 #else
-# define NAMESIZE "%-16s"
+# define NAMESIZE "%-15s"
 #endif
 
 int	main(void)
@@ -24,7 +24,7 @@ int	main(void)
 		printf(C_ORANGE"[L"C_BLUE"K]"C_RESET"\tFunction "C_ORANGE"does"C_RESET"/"C_BLUE"doesn't"C_RESET" contain leaks at some point.\n");
 		printf("\n");
 		printf("Read "C_BLUE"errorlog.txt"C_RESET" for more information.\n");
-		close(open("errorlog.txt", O_CREAT, 0666 | O_TRUNC));
+		close(open("errorlog.txt", O_TRUNC | O_CREAT, 0666));
 	}
 	if (FRAME == 2)
 		printf(C_BOLD"\n\tMandatory"C_RESET" ");
@@ -55,41 +55,49 @@ int	main(void)
 	// if (TEST == 110 || TEST == 119)
 	// 	printf(C_BOLD"\n"NAMESIZE"all"C_RESET"\t",	"");
 	if (TEST == 100)
-		printf(C_BOLD"\n"NAMESIZE C_RESET" ",	"Left Alligned:");
+		printf(C_BOLD"\n"NAMESIZE"  0-[width][.precision]"C_RESET" ",	"Bonus Part 1:");
 	if (TEST == 100)
-		printf(C_BOLD" %%-#c"C_RESET" ");
-	if (TEST == 102)
-		printf(C_BOLD" %%-#s"C_RESET" ");
-	if (TEST == 105)
-		printf(C_BOLD" %%-#i"C_RESET" ");
-	if (TEST == 108)
-		printf(C_BOLD" all"C_RESET" ");
-	if (TEST == 109)
 		printf(C_BOLD"\n"NAMESIZE C_RESET" ",	"Zero Padded:");
+	if (TEST == 100)
+		printf(C_BOLD" %%0i"C_RESET" ");
+	if (TEST == 104)
+		printf(C_BOLD"\n"NAMESIZE C_RESET" ",	"Left Adjusted:");
+	if (TEST == 104)
+		printf(C_BOLD" %%-[#]c"C_RESET" ");
+	if (TEST == 106)
+		printf(C_BOLD" %%-[#]s"C_RESET" ");
 	if (TEST == 109)
-		printf(C_BOLD" %%0#i"C_RESET" ");
-	if (TEST == 113)
-		printf(C_BOLD"\n"NAMESIZE C_RESET" ",	"Max Field Width:");
-	if (TEST == 113)
-		printf(C_BOLD" %%.#s"C_RESET" ");
-	if (TEST == 118)
-		printf(C_BOLD" %%.#i"C_RESET" ");
-	if (TEST == 120)
-		printf(C_BOLD"\n\n"NAMESIZE C_RESET" ",	"Min Field Width:");
-	if (TEST == 120)
-		printf(C_BOLD" %%#c"C_RESET" ");
-	if (TEST == 123)
-		printf(C_BOLD" %%#s"C_RESET" ");
-	if (TEST == 126)
-		printf(C_BOLD" %%#i"C_RESET" ");
-	if (TEST == 130)
+		printf(C_BOLD" %%-[#]i"C_RESET" ");
+	if (TEST == 112)
 		printf(C_BOLD" all"C_RESET" ");
-	if (TEST == 131)
-		printf(C_BOLD"\n"NAMESIZE C_RESET" ",	"Space:");
-	if (TEST == 136)
-		printf(C_BOLD"\n"NAMESIZE C_RESET" ",	"Show Positive:");
-	if (TEST == 138)
-		printf(C_BOLD"\n"NAMESIZE C_RESET" ",	"Min & Max Field:");
-	if (TEST == 146)
+	if (TEST == 113)
+		printf(C_BOLD"\n"NAMESIZE C_RESET" ",	"Field Width:");
+	if (TEST == 113)
+		printf(C_BOLD" %%[#]c"C_RESET" ");
+	if (TEST == 116)
+		printf(C_BOLD" %%[#]s"C_RESET" ");
+	if (TEST == 119)
+		printf(C_BOLD" %%[#]i"C_RESET" ");
+	if (TEST == 123)
+		printf(C_BOLD" all"C_RESET" ");
+	if (TEST == 124)
+		printf(C_BOLD"\n"NAMESIZE C_RESET" ",	".Precision:");
+	if (TEST == 124)
+		printf(C_BOLD" %%.[#]s"C_RESET" ");
+	if (TEST == 129)
+		printf(C_BOLD" %%.[#]i"C_RESET" ");
+	if (TEST == 134)
+		printf(C_BOLD" all"C_RESET" ");
+	if (TEST == 135)
+		printf(C_BOLD"\n"NAMESIZE C_RESET" ",	"Combinations:");
+	if (TEST == 151)
+		printf(C_BOLD"\n\n"NAMESIZE"  # +"C_RESET" ",	"Bonus Part 2:");
+	if (TEST == 151)
+		printf(C_BOLD"\n"NAMESIZE C_RESET" ",	"Alternate Form:");
+	if (TEST == 153)
+		printf(C_BOLD"\n"NAMESIZE C_RESET" ",	"Spaced:");
+	if (TEST == 158)
+		printf(C_BOLD"\n"NAMESIZE C_RESET" ",	"Signed:");
+	if (TEST == 160)
 		printf(C_BOLD"\n"NAMESIZE C_RESET" ",	"Combinations:");
 }

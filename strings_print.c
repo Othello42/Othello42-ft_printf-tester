@@ -5,7 +5,7 @@
 #include <fcntl.h> //open
 #include <unistd.h> //close
 
-int		ft_printf(const char *str, ...);
+int	ft_printf(const char *str, ...);
 void	print_strings(void);
 
 int	main(void)

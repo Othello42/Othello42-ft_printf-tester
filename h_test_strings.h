@@ -10,7 +10,7 @@
 ||								  Basic Write								  ||
 ||								   Tests 1-4								  ||
 ||																			  ||
-\* ============get_next_line===========||==============©Othello============== */
+\* ==============ft_printf=============||==============©Othello============== */
 #elif TEST==1
 	#define STRING		"Lorem Ipsum"
 	#define ARGUMENTS	""
@@ -28,7 +28,7 @@
 ||								 %c	Character								  ||
 ||								  Tests 5 - 6								  ||
 ||																			  ||
-\* ============get_next_line===========||==============©Othello============== */
+\* ==============ft_printf=============||==============©Othello============== */
 #elif TEST==5
 	#define STRING		"%c%c%c%c%c%c%c%c%c%c%c%c%c"
 	#define ARGUMENTS	, 'L', 'o', 'r', 'e', 'm', ' ', 'I', 'p', 's', 'u', 'm', '.', '\n'
@@ -43,7 +43,7 @@
 ||								  %s	String								  ||
 ||								  Tests 8 - 12								  ||
 ||																			  ||
-\* ============get_next_line===========||==============©Othello============== */
+\* ==============ft_printf=============||==============©Othello============== */
 #elif TEST==8
 	#define STRING		"%s"
 	#define ARGUMENTS	, "Lorem Ipsum.\n"
@@ -64,7 +64,7 @@
 ||							%p	(void *) address							  ||
 ||								 Tests 13 - 21								  ||
 ||																			  ||
-\* ============get_next_line===========||==============©Othello============== */
+\* ==============ft_printf=============||==============©Othello============== */
 #elif TEST==13
 	#define STRING		"%p"
 	#define ARGUMENTS	, (void *)0x10c5c3f7b
@@ -103,7 +103,7 @@
 ||							%d	Decimal (base 10)							  ||
 ||								 Tests 22 - 32								  ||
 ||																			  ||
-\* ============get_next_line===========||==============©Othello============== */
+\* ==============ft_printf=============||==============©Othello============== */
 #elif TEST==24
 	#define STRING		"%d"
 	#define ARGUMENTS	, (int)-2147483648
@@ -142,7 +142,7 @@
 ||							%i	Integer base 10								  ||
 ||								 Tests 33 - 43								  ||
 ||																			  ||
-\* ============get_next_line===========||==============©Othello============== */
+\* ==============ft_printf=============||==============©Othello============== */
 #elif TEST==33
 	#define STRING		"%i"
 	#define ARGUMENTS	, (int)-2147483648
@@ -181,7 +181,7 @@
 ||						%u	Unsigned decimal (base 10)						  ||
 ||								 Tests 44 - 51								  ||
 ||																			  ||
-\* ============get_next_line===========||==============©Othello============== */
+\* ==============ft_printf=============||==============©Othello============== */
 #elif TEST==44
 	#define STRING		"%u"
 	#define ARGUMENTS	, 0
@@ -211,7 +211,7 @@
 ||							%x	Lowercase Hexadecimal						  ||
 ||								 Tests 52 - 61								  ||
 ||																			  ||
-\* ============get_next_line===========||==============©Othello============== */
+\* ==============ft_printf=============||==============©Othello============== */
 #elif TEST==52
 	#define STRING		"%x"
 	#define ARGUMENTS	, 0
@@ -247,7 +247,7 @@
 ||							%X	Uppercase Hexadecimal						  ||
 ||								 Tests 62 - 71								  ||
 ||																			  ||
-\* ============get_next_line===========||==============©Othello============== */
+\* ==============ft_printf=============||==============©Othello============== */
 #elif TEST==62
 	#define STRING		"%X"
 	#define ARGUMENTS	, 0
@@ -283,7 +283,7 @@
 ||								  %%		%								  ||
 ||								 Tests 72 - 73								  ||
 ||																			  ||
-\* ============get_next_line===========||==============©Othello============== */
+\* ==============ft_printf=============||==============©Othello============== */
 #elif TEST==72
 	#define STRING		"%%%%%%Lorem%%%%Ipsum%%"
 	#define ARGUMENTS	
@@ -295,7 +295,7 @@
 ||								Miscellaneous								  ||
 ||								Tests 74 - 76								  ||
 ||																			  ||
-\* ============get_next_line===========||==============©Othello============== */	
+\* ==============ft_printf=============||==============©Othello============== */	
 #elif TEST==74
 	#define STRING		"%s%s%s"
 	#define ARGUMENTS	, "Lorem", "\0", "ipsum"
@@ -311,166 +311,276 @@
 ||																			  ||
 || ====================================||==================================== ||
 ||																			  ||
-||						%-#c	Left Alligned							  ||
+||								%0i	Zero Padded								  ||
+||								Tests 109 - 112								  ||
+||																			  ||
+\* ==============ft_printf=============||==============©Othello============== */
+#elif TEST==100
+	#define STRING		"%042i"
+	#define ARGUMENTS	, 42
+#elif TEST==101
+	#define STRING		"%02i"
+	#define ARGUMENTS	, 42
+#elif TEST==102
+	#define STRING		"%01i"
+	#define ARGUMENTS	, 42
+#elif TEST==103
+	#define STRING		"%0i"
+	#define ARGUMENTS	, 42
+/* ====================================||==================================== *\
+||																			  ||
+||							  %-[#]c	Left Adjusted						  ||
 ||								Tests 100 - 108								  ||
 ||																			  ||
-\* ============get_next_line===========||==============©Othello============== */
-#elif TEST==100
+\* ==============ft_printf=============||==============©Othello============== */
+#elif TEST==104
 	#define STRING		"%-42c"
 	#define ARGUMENTS	, 'L'
-#elif TEST==101
+#elif TEST==105
 	#define STRING		"%-1c"
 	#define ARGUMENTS	, 'L'
 /* ====================================||==================================== *\
-\* ============get_next_line===========||==============©Othello============== */
-#elif TEST==102
+\* ==============ft_printf=============||==============©Othello============== */
+#elif TEST==106
 	#define STRING		"%-11s"
 	#define ARGUMENTS	, "Lorem ipsum"
-#elif TEST==103
+#elif TEST==107
 	#define STRING		"%-42s"
 	#define ARGUMENTS	, "Lorem ipsum"
-#elif TEST==104
+#elif TEST==108
 	#define STRING		"%-5s"
 	#define ARGUMENTS	, "Lorem ipsum"
 /* ====================================||==================================== *\
-\* ============get_next_line===========||==============©Othello============== */
-#elif TEST==105
+\* ==============ft_printf=============||==============©Othello============== */
+#elif TEST==109
 	#define STRING		"%-9i"
 	#define ARGUMENTS	, 123456789
-#elif TEST==106
+#elif TEST==110
 	#define STRING		"%-42i"
 	#define ARGUMENTS	, 123456789
-#elif TEST==107
+#elif TEST==111
 	#define STRING		"%-5i"
 	#define ARGUMENTS	, 123456789
 /* ====================================||==================================== *\
-\* ============get_next_line===========||==============©Othello============== */
-#elif TEST==108
+\* ==============ft_printf=============||==============©Othello============== */
+#elif TEST==112
 	#define STRING		"combined"
 	#define ARGUMENTS	
 /* ====================================||==================================== *\
 ||																			  ||
-||							%0c	Zero Padding 						  ||
-||								Tests 109 - 112								  ||
-||																			  ||
-\* ============get_next_line===========||==============©Othello============== */
-#elif TEST==109
-	#define STRING		"%042i"
-	#define ARGUMENTS	, 42
-#elif TEST==110
-	#define STRING		"%02i"
-	#define ARGUMENTS	, 42
-#elif TEST==111
-	#define STRING		"%01i"
-	#define ARGUMENTS	, 42
-#elif TEST==112
-	#define STRING		"%0i"
-	#define ARGUMENTS	, 42
-/* ====================================||==================================== *\
-||																			  ||
-||							%.#c	Max Field Width						  ||
-||								Tests 113 - 115								  ||
-||																			  ||
-\* ============get_next_line===========||==============©Othello============== */
-#elif TEST==113
-	#define STRING		"%.11s"
-	#define ARGUMENTS	, "Lorem Ipsum"
-#elif TEST==114
-	#define STRING		"%.42s"
-	#define ARGUMENTS	, "Lorem Ipsum"
-#elif TEST==115
-	#define STRING		"%.5s"
-	#define ARGUMENTS	, "Lorem Ipsum"
-#elif TEST==116
-	#define STRING		"%.0s"
-	#define ARGUMENTS	, "Lorem Ipsum"
-#elif TEST==117
-	#define STRING		"%.s"
-	#define ARGUMENTS	, "Lorem Ipsum"
-/* ====================================||==================================== *\
-\* ============get_next_line===========||==============©Othello============== */
-#elif TEST==118
-	#define STRING		"%.5i"
-	#define ARGUMENTS	, 42
-#elif TEST==119
-	#define STRING		"%.5i"
-	#define ARGUMENTS	, 424242
-/* ====================================||==================================== *\
-||																			  ||
-||							%#c	Min Field Width						  ||
+||							   %[#]c	Field Width							  ||
 ||								Tests 100-110								  ||
 ||																			  ||
-\* ============get_next_line===========||==============©Othello============== */
-#elif TEST==120
+\* ==============ft_printf=============||==============©Othello============== */
+#elif TEST==113
 	#define STRING		"%42c"
 	#define ARGUMENTS	, 'L'
-#elif TEST==121
+#elif TEST==114
 	#define STRING		"%1c"
 	#define ARGUMENTS	, 'L'
-#elif TEST==122
+#elif TEST==115
 	#define STRING		"%42c"
 	#define ARGUMENTS	, '\0'
 /* ====================================||==================================== *\
-\* ============get_next_line===========||==============©Othello============== */
-#elif TEST==123
+\* ==============ft_printf=============||==============©Othello============== */
+#elif TEST==116
 	#define STRING		"%11s"
 	#define ARGUMENTS	, "Lorem ipsum"
-#elif TEST==124
+#elif TEST==117
 	#define STRING		"%42s"
 	#define ARGUMENTS	, "Lorem ipsum"
-#elif TEST==125
+#elif TEST==118
 	#define STRING		"%5s"
 	#define ARGUMENTS	, "Lorem ipsum"
 /* ====================================||==================================== *\
-\* ============get_next_line===========||==============©Othello============== */
-#elif TEST==126
+\* ==============ft_printf=============||==============©Othello============== */
+#elif TEST==119
 	#define STRING		"%42i"
 	#define ARGUMENTS	, 123456789
-#elif TEST==127
+#elif TEST==120
 	#define STRING		"%9i"
 	#define ARGUMENTS	, 123456789
-#elif TEST==128
+#elif TEST==121
 	#define STRING		"%5i"
 	#define ARGUMENTS	, 123456789
-#elif TEST==129
+#elif TEST==122
 	#define STRING		"%0i"
 	#define ARGUMENTS	, 123456789
 /* ====================================||==================================== *\
-\* ============get_next_line===========||==============©Othello============== */
-#elif TEST==130
+\* ==============ft_printf=============||==============©Othello============== */
+#elif TEST==123
 	#define STRING		"%11c%11s%10i%1c%3s"
 	#define ARGUMENTS	, 'L', "orem ", 123, 'i', "psum "
 /* ====================================||==================================== *\
 ||																			  ||
-||									%' '									  ||
-||								Tests 120 - 125								  ||
+||							  %.[#]c	.Precision							  ||
+||								Tests 113 - 115								  ||
 ||																			  ||
-\* ============get_next_line===========||==============©Othello============== */
+\* ==============ft_printf=============||==============©Othello============== */
+#elif TEST==124
+	#define STRING		"%.11s"
+	#define ARGUMENTS	, "Lorem Ipsum"
+#elif TEST==125
+	#define STRING		"%.21s"
+	#define ARGUMENTS	, "Lorem Ipsum"
+#elif TEST==126
+	#define STRING		"%.5s"
+	#define ARGUMENTS	, "Lorem Ipsum"
+#elif TEST==127
+	#define STRING		"%.0s"
+	#define ARGUMENTS	, "Lorem Ipsum"
+#elif TEST==128
+	#define STRING		"%.s"
+	#define ARGUMENTS	, "Lorem Ipsum"
+/* ====================================||==================================== *\
+\* ==============ft_printf=============||==============©Othello============== */
+#elif TEST==129
+	#define STRING		"%.2i"
+	#define ARGUMENTS	, 42
+#elif TEST==130
+	#define STRING		"%.21i"
+	#define ARGUMENTS	, 42
 #elif TEST==131
-	#define STRING		"% i"
+	#define STRING		"%.1i"
 	#define ARGUMENTS	, 42
 #elif TEST==132
+	#define STRING		"%.0i"
+	#define ARGUMENTS	, 42
+#elif TEST==133
+	#define STRING		"%.i"
+	#define ARGUMENTS	, 42
+/* ====================================||==================================== *\
+\* ==============ft_printf=============||==============©Othello============== */
+#elif TEST==134
+	#define STRING		"%.2i%.5s%.21i"
+	#define ARGUMENTS	, 42, "Lorem ipsum", 42
+/* ====================================||==================================== *\
+||																			  ||
+||								  Combinations								  ||
+||								Tests 120 - 125								  ||
+||																			  ||
+\* ==============ft_printf=============||==============©Othello============== */
+#elif TEST==135
+	#define STRING		"%021i"
+	#define ARGUMENTS	, 42
+#elif TEST==136
+	#define STRING		"%01i"
+	#define ARGUMENTS	, 42
+#elif TEST==137
+	#define STRING		"%0.21i"
+	#define ARGUMENTS	, 42
+#elif TEST==138
+	#define STRING		"%0.1i"
+	#define ARGUMENTS	, 42
+#elif TEST==139
+	#define STRING		"%-21i"
+	#define ARGUMENTS	, 42
+#elif TEST==140
+	#define STRING		"%-21s"
+	#define ARGUMENTS	, "Lorem ipsum"
+#elif TEST==141
+	#define STRING		"%-5s"
+	#define ARGUMENTS	, "Lorem ipsum"
+#elif TEST==142
+	#define STRING		"%-21c"
+	#define ARGUMENTS	, 'L'
+#elif TEST==143
+	#define STRING		"%-.5s"
+	#define ARGUMENTS	, "Lorem ipsum"
+#elif TEST==144
+	#define STRING		"%-.1i"
+	#define ARGUMENTS	, 42
+#elif TEST==145
+	#define STRING		"%-21i"
+	#define ARGUMENTS	, 42
+#elif TEST==146
+	#define STRING		"%-21i"
+	#define ARGUMENTS	, 42
+#elif TEST==147
+	#define STRING		"%21.5i"
+	#define ARGUMENTS	, 42
+#elif TEST==148
+	#define STRING		"%1.21i"
+	#define ARGUMENTS	, 42
+#elif TEST==149
+	#define STRING		"%21.5s"
+	#define ARGUMENTS	, "Lorem Ipsum"
+#elif TEST==150
+	#define STRING		"%5.21s"
+	#define ARGUMENTS	, "Lorem Ipsum"
+/* ====================================||==================================== *\
+||																			  ||
+||							 %#c	Alternate Form							  ||
+||								Tests 119									  ||
+||																			  ||
+\* ==============ft_printf=============||==============©Othello============== */
+// #elif TEST==119
+// 	#define STRING		"%#s\n"
+// 	#define ARGUMENTS	, 42
+// #elif TEST==147
+// 	#define STRING		"%#o"
+// 	#define ARGUMENTS	, 42
+#elif TEST==151
+	#define STRING		"%#x"
+	#define ARGUMENTS	, 42
+#elif TEST==152
+	#define STRING		"%x"
+	#define ARGUMENTS	, 42
+	// #elif TEST==150
+	// #define STRING		"%#a"
+	// #define ARGUMENTS	, 42.42
+	// #elif TEST==151
+	// #define STRING		"%a"
+	// #define ARGUMENTS	, 42.42
+	// #elif TEST==152
+	// #define STRING		"%#e"
+	// #define ARGUMENTS	, 42.42
+	// #elif TEST==153
+	// #define STRING		"%e"
+	// #define ARGUMENTS	, 42.42
+	// #elif TEST==154
+	// #define STRING		"%#f"
+	// #define ARGUMENTS	, 42.42
+	// #elif TEST==155
+	// #define STRING		"%f"
+	// #define ARGUMENTS	, 42.42
+	// #elif TEST==156
+	// #define STRING		"%#g"
+	// #define ARGUMENTS	, 42.42
+	// #elif TEST==157
+	// #define STRING		"%g"
+	// #define ARGUMENTS	, 42.42
+/* ====================================||==================================== *\
+||																			  ||
+||								%' '	Spaced								  ||
+||								Tests 120 - 125								  ||
+||																			  ||
+\* ==============ft_printf=============||==============©Othello============== */
+#elif TEST==153
+	#define STRING		"% i"
+	#define ARGUMENTS	, 42
+#elif TEST==154
 	#define STRING		"% i"
 	#define ARGUMENTS	, -42
-#elif TEST==133
+#elif TEST==155
 	#define STRING		"%     i"
 	#define ARGUMENTS	, 42
-#elif TEST==134
+#elif TEST==156
 	#define STRING		"%     i"
 	#define ARGUMENTS	, -42
-#elif TEST==135
+#elif TEST==157
 	#define STRING		"%%% %%% %% %%"
 	#define ARGUMENTS	
 /* ====================================||==================================== *\
 ||																			  ||
-||								%+											  ||
+||								  %+	Signed								  ||
 ||								Tests 126 - 127								  ||
 ||																			  ||
-\* ============get_next_line===========||==============©Othello============== */
-#elif TEST==136
+\* ==============ft_printf=============||==============©Othello============== */
+#elif TEST==158
 	#define STRING		"%+i"
 	#define ARGUMENTS	, 42
-#elif TEST==137
+#elif TEST==159
 	#define STRING		"%+i"
 	#define ARGUMENTS	, -42
 /* ====================================||==================================== *\
@@ -478,35 +588,35 @@
 ||							%#.#s	Limited Spaced STRING					  ||
 ||								Tests 114 - 117								  ||
 ||																			  ||
-\* ============get_next_line===========||==============©Othello============== */
-#elif TEST==138
+\* ==============ft_printf=============||==============©Othello============== */
+#elif TEST==222
 	#define STRING		"%42.5s"
 	#define ARGUMENTS	, "Lorem Ipsum"
-#elif TEST==139
+#elif TEST==222
 	#define STRING		"%5.11s"
 	#define ARGUMENTS	, "Lorem Ipsum"
-#elif TEST==140
+#elif TEST==222
 	#define STRING		"%11.5s"
 	#define ARGUMENTS	, "Lorem Ipsum"
-#elif TEST==141
+#elif TEST==222
 	#define STRING		"%-11.5s"
 	#define ARGUMENTS	, "Lorem Ipsum"
-#elif TEST==142
+#elif TEST==222
 	#define STRING		"%-42.5s"
 	#define ARGUMENTS	, "Lorem Ipsum"
-#elif TEST==143
+#elif TEST==222
 	#define STRING		"%42.21i"
 	#define ARGUMENTS	, 42
-#elif TEST==144
+#elif TEST==222
 	#define STRING		"%042.21i"
 	#define ARGUMENTS	, 42
-#elif TEST==145
+#elif TEST==222
 	#define STRING		"%42.021i"
 	#define ARGUMENTS	, 42
-// #elif TEST==122
+// #elif TEST==222
 // 	#define STRING		"%042.21s"
 // 	#define ARGUMENTS	, "Lorem Ipsum"
-#elif TEST==145
+#elif TEST==222
 	#define STRING		"%42.021s"
 	#define ARGUMENTS	, "Lorem Ipsum"
 /* ====================================||==================================== *\
@@ -514,23 +624,15 @@
 ||																			  ||
 ||								Tests 118									  ||
 ||																			  ||
-\* ============get_next_line===========||==============©Othello============== */
-#elif TEST==146
-	#define STRING		"%11.s"
-	#define ARGUMENTS	, "Lorem Ipsum"
-/* ====================================||==================================== *\
-||																			  ||
-||									%#										  ||
-||								Tests 119									  ||
-||																			  ||
-\* ============get_next_line===========||==============©Othello============== */
-// #elif TEST==119
-// 	#define STRING		"%#s\n"
-// 	#define ARGUMENTS	, 42
+\* ==============ft_printf=============||==============©Othello============== */
+// #elif TEST==222
+// 	#define STRING		"%11.s"
+// 	#define ARGUMENTS	, "Lorem Ipsum"
 
 
 
-#elif TEST==147
+
+#elif TEST==222
 	#define STRING		"% -42i"
 	#define ARGUMENTS	, 42
 
