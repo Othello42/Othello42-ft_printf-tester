@@ -3,11 +3,12 @@
 #include <stdio.h> //printf
 #include <fcntl.h> //open
 #include <unistd.h> //closes
+#include <stdlib.h>  //system
 
 #if TEST >= 0 && TEST < 100
-# define NAMESIZE "%-14s" 
+# define NAMESIZE "%-16s" 
 #else
-# define NAMESIZE "%-15s"
+# define NAMESIZE "%16s"
 #endif
 
 int	main(void)
@@ -21,83 +22,124 @@ int	main(void)
 		printf(C_RED"[#KO]"C_RESET"\tTest gave incorrect return value.\n");
 		printf(C_DGREY"[KO]"C_RESET"\tTest failed to execute.\n");
 		printf("\n");
-		printf(C_ORANGE"[L"C_BLUE"K]"C_RESET"\tFunction "C_ORANGE"does"C_RESET"/"C_BLUE"doesn't"C_RESET" contain leaks at some point.\n");
+		printf(C_ORANGE"[LK]"C_RESET"\tFunction "C_ORANGE"does"C_RESET"/"C_BLUE"doesn't"C_RESET" contain leaks at some point.\n");
 		printf("\n");
 		printf("Read "C_BLUE"errorlog.txt"C_RESET" for more information.\n");
 		close(open("errorlog.txt", O_TRUNC | O_CREAT, 0666));
+	}
+	if (FRAME == 1)
+	{
+		int grep;
+
+		grep = 0;
+		printf(C_BOLD"\tN");
+		fflush(NULL);
+		system("norminette -v | cut -c 2-99");
+		printf(C_RED);
+		fflush(NULL);
+		grep = system("norminette "PROJECT" | grep Error"); //adjut route
+		if (grep != 0)
+			printf(C_GREEN"[OK]"C_RESET);
+		printf(C_RESET"\n");
 	}
 	if (FRAME == 2)
 		printf(C_BOLD"\n\tMandatory"C_RESET" ");
 	if (FRAME == 3)
 		printf(C_BOLD"\n\n\tBonus"C_RESET"\n");
+/* ====================================||==================================== *\
+||																			  ||
+||								   MANDATORY								  ||
+||																			  ||
+\* ==============ft_printf=============||==============©Othello============== */
 	if (TEST == 1)
-		printf(C_BOLD"\n"NAMESIZE C_RESET"\t\t",		"Basic Write");
-	if (TEST == 5)
-		printf(C_BOLD"\n"NAMESIZE"%% c"C_RESET"\t",	"Character");
-	if (TEST == 8)
-		printf(C_BOLD"\n"NAMESIZE"%% s"C_RESET"\t",	"String");
-	if (TEST == 13)
-		printf(C_BOLD"\n"NAMESIZE"%% p"C_RESET"\t",		"Address");
-	if (TEST == 24)
-		printf(C_BOLD"\n"NAMESIZE"%% d"C_RESET"\t",		"Decimal");
-	if (TEST == 35)
-		printf(C_BOLD"\n"NAMESIZE"%% i"C_RESET"\t",		"Integer");
-	if (TEST == 44)
-		printf(C_BOLD"\n"NAMESIZE"%% u"C_RESET"\t",		"Unsigned Dec");
-	if (TEST == 52)
-		printf(C_BOLD"\n"NAMESIZE"%% x"C_RESET"\t",		"Lowercase Hex");
-	if (TEST == 62)
-		printf(C_BOLD"\n"NAMESIZE"%% X"C_RESET"\t",		"Uppercase Hex");
-	if (TEST == 72)
-		printf(C_BOLD"\n"NAMESIZE"%% %%"C_RESET"\t",	"%%");
-	if (TEST == 74)
-		printf(C_BOLD"\n"NAMESIZE C_RESET"\t\t",		"Miscelaneous");
-	// if (TEST == 110 || TEST == 119)
-	// 	printf(C_BOLD"\n"NAMESIZE"all"C_RESET"\t",	"");
+		printf(C_BOLD"\n"NAMESIZE C_RESET"\t",			"Basic Write");
+	if (TEST == 6)
+		printf(C_BOLD"\n"NAMESIZE"%%c"C_RESET"\t",		"Character");
+	if (TEST == 10)
+		printf(C_BOLD"\n"NAMESIZE"%%s"C_RESET"\t",		"String");
+	if (TEST == 18)
+		printf(C_BOLD"\n"NAMESIZE"%%p"C_RESET"\t",		"Address");
+	if (TEST == 29)
+		printf(C_BOLD"\n"NAMESIZE"%%d"C_RESET"\t",		"Decimal");
+	if (TEST == 39)
+		printf(C_BOLD"\n"NAMESIZE"%%i"C_RESET"\t",		"Integer");
+	if (TEST == 49)
+		printf(C_BOLD"\n"NAMESIZE"%%u"C_RESET"\t",		"Unsigned Dec");
+	if (TEST == 59)
+		printf(C_BOLD"\n"NAMESIZE"%%x"C_RESET"\t",		"Lowercase Hex");
+	if (TEST == 69)
+		printf(C_BOLD"\n"NAMESIZE"%%X"C_RESET"\t",		"Uppercase Hex");
+	if (TEST == 79)
+		printf(C_BOLD"\n"NAMESIZE"%%%%"C_RESET"\t",		"%%");
+	if (TEST == 83)
+		printf(C_BOLD"\n"NAMESIZE C_RESET"\t",			"Miscelaneous");
+/* ====================================||==================================== *\
+||																			  ||
+||									 BONUS									  ||
+||																			  ||
+\* ==============ft_printf=============||==============©Othello============== */
 	if (TEST == 100)
-		printf(C_BOLD"\n"NAMESIZE"  0-[width][.precision]"C_RESET" ",	"Bonus Part 1:");
+		printf(C_BOLD"\n"NAMESIZE"  0-[width][.precision]"C_RESET" ", "Bonus Part 1:");
 	if (TEST == 100)
-		printf(C_BOLD"\n"NAMESIZE C_RESET" ",	"Zero Padded:");
+		printf(C_BOLD"\n%s"C_RESET" ",			"Zero Padded:");
 	if (TEST == 100)
-		printf(C_BOLD" %%0i"C_RESET" ");
-	if (TEST == 104)
-		printf(C_BOLD"\n"NAMESIZE C_RESET" ",	"Left Adjusted:");
-	if (TEST == 104)
-		printf(C_BOLD" %%-[#]c"C_RESET" ");
-	if (TEST == 106)
-		printf(C_BOLD" %%-[#]s"C_RESET" ");
-	if (TEST == 109)
-		printf(C_BOLD" %%-[#]i"C_RESET" ");
-	if (TEST == 112)
-		printf(C_BOLD" all"C_RESET" ");
-	if (TEST == 113)
-		printf(C_BOLD"\n"NAMESIZE C_RESET" ",	"Field Width:");
-	if (TEST == 113)
-		printf(C_BOLD" %%[#]c"C_RESET" ");
-	if (TEST == 116)
-		printf(C_BOLD" %%[#]s"C_RESET" ");
+		printf(C_BOLD"\n"NAMESIZE C_RESET" ", "%%0i");
+	if (TEST == 108)
+		printf(C_BOLD"\n"NAMESIZE C_RESET" ", "all");
+	if (TEST == 117)
+		printf(C_BOLD"\n%s"C_RESET" ",			"Left Adjusted:");
+	if (TEST == 117)
+		printf(C_BOLD"\n"NAMESIZE C_RESET" ", "%%-[#]c");
 	if (TEST == 119)
-		printf(C_BOLD" %%[#]i"C_RESET" ");
-	if (TEST == 123)
-		printf(C_BOLD" all"C_RESET" ");
-	if (TEST == 124)
-		printf(C_BOLD"\n"NAMESIZE C_RESET" ",	".Precision:");
-	if (TEST == 124)
-		printf(C_BOLD" %%.[#]s"C_RESET" ");
-	if (TEST == 129)
-		printf(C_BOLD" %%.[#]i"C_RESET" ");
-	if (TEST == 134)
-		printf(C_BOLD" all"C_RESET" ");
+		printf(C_BOLD"\n"NAMESIZE C_RESET" ", "%%-[#]s");
+	if (TEST == 122)
+		printf(C_BOLD"\n"NAMESIZE C_RESET" ", "%%-[#]i");
+	if (TEST == 126)
+		printf(C_BOLD"\n"NAMESIZE C_RESET" ", "all");
 	if (TEST == 135)
-		printf(C_BOLD"\n"NAMESIZE C_RESET" ",	"Combinations:");
-	if (TEST == 151)
-		printf(C_BOLD"\n\n"NAMESIZE"  # +"C_RESET" ",	"Bonus Part 2:");
-	if (TEST == 151)
-		printf(C_BOLD"\n"NAMESIZE C_RESET" ",	"Alternate Form:");
+		printf(C_BOLD"\n%s"C_RESET" ",			"Field Width:");
+	if (TEST == 135)
+		printf(C_BOLD"\n"NAMESIZE C_RESET" ", "%%[#]c");
+	if (TEST == 138)
+		printf(C_BOLD"\n"NAMESIZE C_RESET" ", "%%[#]s");
+	if (TEST == 141)
+		printf(C_BOLD"\n"NAMESIZE C_RESET" ", "%%[#]i");
+	if (TEST == 144)
+		printf(C_BOLD"\n"NAMESIZE C_RESET" ", "all");
 	if (TEST == 153)
-		printf(C_BOLD"\n"NAMESIZE C_RESET" ",	"Spaced:");
-	if (TEST == 158)
-		printf(C_BOLD"\n"NAMESIZE C_RESET" ",	"Signed:");
-	if (TEST == 160)
-		printf(C_BOLD"\n"NAMESIZE C_RESET" ",	"Combinations:");
+		printf(C_BOLD"\n%s"C_RESET" ",			".Precision:");
+	if (TEST == 153)
+		printf(C_BOLD"\n"NAMESIZE C_RESET" ", "%%.[#]c");
+	if (TEST == 159)
+		printf(C_BOLD"\n"NAMESIZE C_RESET" ", "%%.[#]s");
+	if (TEST == 165)
+		printf(C_BOLD"\n"NAMESIZE C_RESET" ", "%%.[#]i");
+	if (TEST == 174)
+		printf(C_BOLD"\n"NAMESIZE C_RESET" ", "all");
+	if (TEST == 181)
+		printf(C_BOLD"\n%s"C_RESET" ",			"Combinations:");
+	if (TEST == 181)
+		printf(C_BOLD"\n"NAMESIZE C_RESET" ", "");
+	if (TEST == 191)
+		printf(C_BOLD"\n"NAMESIZE C_RESET" ", "");
+/* ====================================||==================================== *\
+\* ==============ft_printf=============||==============©Othello============== */
+	if (TEST == 197)
+		printf(C_BOLD"\n\n"NAMESIZE"  # +"C_RESET" ", "Bonus Part 2:");
+	if (TEST == 197)
+		printf(C_BOLD"\n%s"C_RESET" ",			"Alternate Form:");
+	if (TEST == 197)
+		printf(C_BOLD"\n"NAMESIZE C_RESET" ", "");
+	if (TEST == 201)
+		printf(C_BOLD"\n%s"C_RESET" ",			"Spaced:");
+	if (TEST == 201)
+		printf(C_BOLD"\n"NAMESIZE C_RESET" ", "");
+	if (TEST == 208)
+		printf(C_BOLD"\n%s"C_RESET" ",			"Signed:");
+	if (TEST == 208)
+		printf(C_BOLD"\n"NAMESIZE C_RESET" ", "");
+	if (TEST == 222)
+		printf(C_BOLD"\n%s"C_RESET" ",			"Combinations:");
+	if (TEST == 222)
+		printf(C_BOLD"\n"NAMESIZE C_RESET" ", "");
 }
