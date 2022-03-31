@@ -83,63 +83,71 @@ int	main(void)
 	if (TEST == 100)
 		printf(C_BOLD"\n%s"C_RESET" ",			"Zero Padded:");
 	if (TEST == 100)
-		printf(C_BOLD"\n"NAMESIZE C_RESET" ", "%%0i");
+		printf(C_BOLD"\n"NAMESIZE C_RESET" ", "%0i");
 	if (TEST == 108)
 		printf(C_BOLD"\n"NAMESIZE C_RESET" ", "all");
 	if (TEST == 117)
 		printf(C_BOLD"\n%s"C_RESET" ",			"Left Adjusted:");
 	if (TEST == 117)
-		printf(C_BOLD"\n"NAMESIZE C_RESET" ", "%%-[#]c");
-	if (TEST == 119)
-		printf(C_BOLD"\n"NAMESIZE C_RESET" ", "%%-[#]s");
-	if (TEST == 122)
-		printf(C_BOLD"\n"NAMESIZE C_RESET" ", "%%-[#]i");
-	if (TEST == 126)
+		printf(C_BOLD"\n"NAMESIZE C_RESET" ", "%-[#]c");
+	if (TEST == 120)
+		printf(C_BOLD"\n"NAMESIZE C_RESET" ", "%-[#]s");
+	if (TEST == 123)
+		printf(C_BOLD"\n"NAMESIZE C_RESET" ", "%-[#]i");
+	if (TEST == 127)
 		printf(C_BOLD"\n"NAMESIZE C_RESET" ", "all");
-	if (TEST == 135)
+	if (TEST == 137)
 		printf(C_BOLD"\n%s"C_RESET" ",			"Field Width:");
-	if (TEST == 135)
-		printf(C_BOLD"\n"NAMESIZE C_RESET" ", "%%[#]c");
-	if (TEST == 138)
-		printf(C_BOLD"\n"NAMESIZE C_RESET" ", "%%[#]s");
-	if (TEST == 141)
-		printf(C_BOLD"\n"NAMESIZE C_RESET" ", "%%[#]i");
-	if (TEST == 144)
+	if (TEST == 137)
+		printf(C_BOLD"\n"NAMESIZE C_RESET" ", "%[#]c");
+	if (TEST == 140)
+		printf(C_BOLD"\n"NAMESIZE C_RESET" ", "%[#]s");
+	if (TEST == 143)
+		printf(C_BOLD"\n"NAMESIZE C_RESET" ", "%[#]i");
+	if (TEST == 146)
 		printf(C_BOLD"\n"NAMESIZE C_RESET" ", "all");
-	if (TEST == 153)
+	if (TEST == 155)
 		printf(C_BOLD"\n%s"C_RESET" ",			".Precision:");
-	if (TEST == 153)
-		printf(C_BOLD"\n"NAMESIZE C_RESET" ", "%%.[#]c");
-	if (TEST == 159)
-		printf(C_BOLD"\n"NAMESIZE C_RESET" ", "%%.[#]s");
-	if (TEST == 165)
-		printf(C_BOLD"\n"NAMESIZE C_RESET" ", "%%.[#]i");
-	if (TEST == 174)
+	if (TEST == 155)
+		printf(C_BOLD"\n"NAMESIZE C_RESET" ", "%.[#]c");
+	if (TEST == 160)
+		printf(C_BOLD"\n"NAMESIZE C_RESET" ", "%.[#]s");
+	if (TEST == 167)
+		printf(C_BOLD"\n"NAMESIZE C_RESET" ", "%.[#]i");
+	if (TEST == 176)
 		printf(C_BOLD"\n"NAMESIZE C_RESET" ", "all");
-	if (TEST == 181)
+	if (TEST == 183)
 		printf(C_BOLD"\n%s"C_RESET" ",			"Combinations:");
-	if (TEST == 181)
-		printf(C_BOLD"\n"NAMESIZE C_RESET" ", "");
+	if (TEST == 183)
+		printf(C_BOLD"\n"NAMESIZE C_RESET" ", "%0-[#].[#]");
 	if (TEST == 191)
 		printf(C_BOLD"\n"NAMESIZE C_RESET" ", "");
 /* ====================================||==================================== *\
 \* ==============ft_printf=============||==============©Othello============== */
-	if (TEST == 197)
+	if (TEST == 191)
 		printf(C_BOLD"\n\n"NAMESIZE"  # +"C_RESET" ", "Bonus Part 2:");
-	if (TEST == 197)
+	if (TEST == 191)
 		printf(C_BOLD"\n%s"C_RESET" ",			"Alternate Form:");
+	if (TEST == 191)
+		printf(C_BOLD"\n"NAMESIZE C_RESET" ", "%#x");
+	if (TEST == 194)
+		printf(C_BOLD"\n"NAMESIZE C_RESET" ", "%#X");
 	if (TEST == 197)
-		printf(C_BOLD"\n"NAMESIZE C_RESET" ", "");
-	if (TEST == 201)
+		printf(C_BOLD"\n"NAMESIZE C_RESET" ", "all");
+	if (TEST == 198)
 		printf(C_BOLD"\n%s"C_RESET" ",			"Spaced:");
-	if (TEST == 201)
-		printf(C_BOLD"\n"NAMESIZE C_RESET" ", "");
-	if (TEST == 208)
+	if (TEST == 198)
+		printf(C_BOLD"\n"NAMESIZE C_RESET" ", "% %");
+	if (TEST == 206)
 		printf(C_BOLD"\n%s"C_RESET" ",			"Signed:");
-	if (TEST == 208)
-		printf(C_BOLD"\n"NAMESIZE C_RESET" ", "");
-	if (TEST == 222)
+	if (TEST == 206)
+		printf(C_BOLD"\n"NAMESIZE C_RESET" ", "%+");
+	if (TEST == 213)
 		printf(C_BOLD"\n%s"C_RESET" ",			"Combinations:");
-	if (TEST == 222)
-		printf(C_BOLD"\n"NAMESIZE C_RESET" ", "");
+	if (TEST == 213)
+		printf(C_BOLD"\n"NAMESIZE C_RESET" ", "%# +");
+	if (TEST == 221)
+		printf(C_BOLD"\n\n"NAMESIZE C_RESET" ", "Full Bonus");
+	if (TEST == 221)
+		printf(C_BOLD"\n"NAMESIZE C_RESET" ", "%#0- +[#].[#]");
 }
