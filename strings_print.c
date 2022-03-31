@@ -6,9 +6,8 @@
 #include <unistd.h> //close
 #include <stdlib.h> //system
 
-#include "../ft_printf/ft_printf.h"
+#include LIB
 
-// int		ft_printf(const char *str, ...);
 void	print_strings(void);
 
 int	main(void)

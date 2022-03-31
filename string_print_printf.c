@@ -6,7 +6,7 @@
 #include <unistd.h> //close
 #include <stdlib.h> //system
 
-#include "../ft_printf/ft_printf.h"
+#include LIB
 
 void	print_strings(void);
 
