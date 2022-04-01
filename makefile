@@ -3,6 +3,7 @@
 CC = 		gcc
 CFLAGS =	-Wall -Wextra -Werror -Wno-everything
 
+#adjust to the libftprintf.a and ft_printf.h directory location.
 PROJECT =	../ft_printf/
 SRC =		-L$(PROJECT) -lftprintf
 HEADER =	$(PROJECT)ft_printf.h
@@ -18,6 +19,7 @@ MAN_START =		1
 MAN_END =		84
 BON_START =		100
 BON_END =		254
+#adjust to test specific parts, see h_test_strings.h for more information.
 TEST_START =	231
 TEST_END =		238
 
