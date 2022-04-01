@@ -323,7 +323,7 @@
 	#define ARGUMENTS	, "Lorem", 0, "ipsum"
 #elif TEST==84
 	#define STRING		"%c%sipsum %p dolor %d sit %i amet, %u consectetur %x adipiscing %X elit. %%\n"
-	#define ARGUMENTS	, 'L', "orem ", 1, 22, 333, 4444, 5555, 66666
+	#define ARGUMENTS	, 'L', "orem ", (void *)1, 22, 333, 4444, 5555, 66666
 /* ====================================||==================================== *\
 ||																			  ||
 ||									 BONUS									  ||
@@ -376,17 +376,17 @@
 	#define STRING		"%0X\t%01X\t%02X\t%03X\t%012X\t\t%0X\t%02X\t%03X\t%04X\t%012X\t"
 	#define ARGUMENTS	, 42, 42, 42, 42, 42, -42, -42, -42, -42, -42
 #elif TEST==113
-	#define STRING		"%0p\t%01p\t%02p\t%03p\t%012p\t\t%0p\t%02p\t%03p\t%04p\t%012p\t"
-	#define ARGUMENTS	, (void *)42, (void *)42, (void *)42, (void *)42, (void *)42, (void *)-42, (void *)-42, (void *)-42, (void *)-42, (void *)-42
-#elif TEST==114
-	#define STRING		"%04s\t%05s\t%06s"
-	#define ARGUMENTS	, "Lorem", "ipsum", "dolor"
-#elif TEST==115
-	#define STRING		"L%02c%01c%0c"
-	#define ARGUMENTS	, 'r', 'e', 'm'
-#elif TEST==116
 	#define STRING		"L%02%%01%%0%"
 	#define ARGUMENTS	
+#elif TEST==114 //undefined
+	#define STRING		"%0p\t%01p\t%02p\t%03p\t%012p\t\t%0p\t%02p\t%03p\t%04p\t%012p\t"
+	#define ARGUMENTS	, (void *)42, (void *)42, (void *)42, (void *)42, (void *)42, (void *)-42, (void *)-42, (void *)-42, (void *)-42, (void *)-42
+#elif TEST==115 //undefined
+	#define STRING		"%04s\t%05s\t%06s"
+	#define ARGUMENTS	, "Lorem", "ipsum", "dolor"
+#elif TEST==116 //undefined
+	#define STRING		"L%02c%01c%0c"
+	#define ARGUMENTS	, 'r', 'e', 'm'
 /* ====================================||==================================== *\
 ||																			  ||
 ||							  %-[#]c	Left Adjusted						  ||
@@ -529,72 +529,72 @@
 ||																			  ||
 \* ==============ft_printf=============||==============©Othello============== */
 #elif TEST==155
-	#define STRING		"%.0c"
-	#define ARGUMENTS	, 'L'
-#elif TEST==156
-	#define STRING		"%.1c"
-	#define ARGUMENTS	, 'L'
-#elif TEST==157
-	#define STRING		"%.2c"
-	#define ARGUMENTS	, 'L'
-#elif TEST==158
-	#define STRING		"%.0c"
-	#define ARGUMENTS	, 0
-#elif TEST==159
-	#define STRING		"%.1c"
-	#define ARGUMENTS	, 0
-#elif TEST==160
-	#define STRING		"%.2c"
-	#define ARGUMENTS	, 0
-/* ====================================||==================================== *\
-\* ==============ft_printf=============||==============©Othello============== */
-#elif TEST==161
 	#define STRING		"%.11s"
 	#define ARGUMENTS	, "Lorem ipsum"
-#elif TEST==162
+#elif TEST==156
 	#define STRING		"%.21s"
 	#define ARGUMENTS	, "Lorem ipsum"
-#elif TEST==163
+#elif TEST==157
 	#define STRING		"%.5s"
 	#define ARGUMENTS	, "Lorem ipsum"
-#elif TEST==164
+#elif TEST==158
 	#define STRING		"%.0s"
 	#define ARGUMENTS	, "Lorem ipsum"
-#elif TEST==165
+#elif TEST==159
 	#define STRING		"%.s"
 	#define ARGUMENTS	, "Lorem ipsum"
-#elif TEST==166
+#elif TEST==160
 	#define STRING		"%.11s"
 	#define ARGUMENTS	, "Lorem\0ipsum"
 /* ====================================||==================================== *\
 \* ==============ft_printf=============||==============©Othello============== */
-#elif TEST==167
+#elif TEST==161
 	#define STRING		"%.2i"
 	#define ARGUMENTS	, 42
-#elif TEST==168
+#elif TEST==162
 	#define STRING		"%.1i"
 	#define ARGUMENTS	, 42
-#elif TEST==169
+#elif TEST==163
 	#define STRING		"%.0i"
 	#define ARGUMENTS	, 42
-#elif TEST==170
+#elif TEST==164
 	#define STRING		"%.21i"
 	#define ARGUMENTS	, 42
-#elif TEST==171
+#elif TEST==165
 	#define STRING		"%.3i"
 	#define ARGUMENTS	, -42
-#elif TEST==172
+#elif TEST==166
 	#define STRING		"%.2i"
 	#define ARGUMENTS	, -42
-#elif TEST==173
+#elif TEST==167
 	#define STRING		"%.1i"
 	#define ARGUMENTS	, -42
-#elif TEST==174
+#elif TEST==168
 	#define STRING		"%.0i"
 	#define ARGUMENTS	, -42
-#elif TEST==175
+#elif TEST==169
 	#define STRING		"%.21i"
 	#define ARGUMENTS	, -42
+/* ====================================||==================================== *\
+\* ==============ft_printf=============||==============©Othello============== */
+#elif TEST==170 //undefined
+	#define STRING		"%.0c"
+	#define ARGUMENTS	, 'L'
+#elif TEST==171 //undefined
+	#define STRING		"%.1c"
+	#define ARGUMENTS	, 'L'
+#elif TEST==172 //undefined
+	#define STRING		"%.2c"
+	#define ARGUMENTS	, 'L'
+#elif TEST==173 //undefined
+	#define STRING		"%.0c"
+	#define ARGUMENTS	, 0
+#elif TEST==174 //undefined
+	#define STRING		"%.1c"
+	#define ARGUMENTS	, 0
+#elif TEST==175 //undefined
+	#define STRING		"%.2c"
+	#define ARGUMENTS	, 0
 /* ====================================||==================================== *\
 \* ==============ft_printf=============||==============©Othello============== */
 #elif TEST==176
@@ -612,7 +612,7 @@
 #elif TEST==180
 	#define STRING		"%.0X\t%.1X\t%.2X\t%.42X\t\t%.0X\t%.1X\t%.2X\t%.3X\t%.42X"
 	#define ARGUMENTS	, 42, 42, 42, 42, -42, -42, -42, -42, -42
-#elif TEST==181
+#elif TEST==181 //undefined
 	#define STRING		"%.0p\t%.1p\t%.2p\t%.42p\t\t%.0p\t%.1p\t%.2p\t%.3p\t%.42p"
 	#define ARGUMENTS	, (void *)42, (void *)42, (void *)42, (void *)42, (void *)-42, (void *)-42, (void *)-42, (void *)-42, (void *)-42
 #elif TEST==182
@@ -621,177 +621,260 @@
 /* ====================================||==================================== *\
 ||																			  ||
 ||								  Combinations								  ||
-||								Tests 183 - 190								  ||
+||								Tests 183 - 198								  ||
 ||																			  ||
 \* ==============ft_printf=============||==============©Othello============== */
 #elif TEST==183
-	#define STRING		"[%-0c] [%03c] [%0.2c] [%-3c] [%-.2c] [%3.0c] [%-03c] [%-0.2c] [%03.2c] [%-3.2c] [%-03.2c] [%0-3.2c]"
+	#define STRING		"[%c] [%c] [%c] [%-3c] [%c] [%c] [%c] [%c] [%c] [%c] [%c] [%c]"
 	#define ARGUMENTS	, 'L', 'o', 'r', 'e', 'm', '_', 'i', 'p', 's', 'u', 'm', '!'
 #elif TEST==184
-	#define STRING		"[%-0s] [%011s] [%0.5s] [%-8s] [%-.5s] [%16.11s] [%-011s] [%-0.5s] [%07.5s] [%-11.6s] [%-06.4s] [%0-8.6s]"
+	#define STRING		"[%s] [%s] [%s] [%-8s] [%-.5s] [%16.11s] [%s] [%s] [%s] [%-11.6s] [%s] [%s]"
 	#define ARGUMENTS	, "Lorem", "ipsum", "dolordolordolor", "sit", "amet,amet,amet", "consectetur", "adipiscing", "elit.elit.elit", "MorbiMorbi", "luctusluctus", "nisinisinisi", "ipsum,ipsum,ipsum,"
 #elif TEST==185
-	#define STRING		"[%-0p] [%011p] [%0.5p] [%-11p] [%-.5p] [%11.5p] [%-011p] [%-0.5p] [%011.5p] [%-11.5p] [%-011.5p] [%0-11.5p]"
+	#define STRING		"[%p] [%p] [%p] [%-11p] [%p] [%p] [%p] [%p] [%p] [%p] [%p] [%p]"
 	#define ARGUMENTS	, (void *)42, (void *)42, (void *)42, (void *)42, (void *)42, (void *)42, (void *)42, (void *)42, (void *)-42, (void *)42, (void *)-42, (void *)-42
 #elif TEST==186
-	#define STRING		"[%-0d] [%011d] [%0.5d] [%-11d] [%-.5d] [%11.5d] [%-011d] [%-0.5d] [%011.5d] [%-11.5d] [%-011.5d] [%0-11.5d]"
+	#define STRING		"[%d] [%011d] [%0.5d] [%-11d] [%-.5d] [%11.5d] [%d] [%d] [%011.5d] [%-11.5d] [%d] [%d]"
 	#define ARGUMENTS	, 42, 42, 42, 42, 42, 42, 42, 42, -42, 42, -42, -42
 #elif TEST==187
-	#define STRING		"[%-0i] [%011i] [%0.5i] [%-11i] [%-.5i] [%11.5i] [%-011i] [%-0.5i] [%011.5i] [%-11.5i] [%-011.5i] [%0-11.5i]"
+	#define STRING		"[%i] [%011i] [%0.5i] [%i] [%-.5i] [%11.5i] [%i] [%i] [%011.5i] [%-11.5i] [%i] [%i]"
 	#define ARGUMENTS	, 42, 42, 42, 42, 42, 42, 42, 42, -42, 42, -42, -42
 #elif TEST==188
-	#define STRING		"[%-0u] [%011u] [%0.5u] [%-11u] [%-.5u] [%11.5u] [%-011u] [%-0.5u] [%011.5u] [%-11.5u] [%-011.5u] [%0-11.5u]"
+	#define STRING		"[%u] [%011u] [%0.5u] [%-11u] [%-.5u] [%11.5u] [%u] [%u] [%011.5u] [%-11.5u] [%u] [%u]"
 	#define ARGUMENTS	, 42, 42, 42, 42, 42, 42, 42, 42, -42, 42, -42, -42
 #elif TEST==189
-	#define STRING		"[%-0x] [%011x] [%0.5x] [%-11x] [%-.5x] [%11.5x] [%-011x] [%-0.5x] [%011.5x] [%-11.5x] [%-011.5x] [%0-11.5x]"
+	#define STRING		"[%x] [%011x] [%0.5x] [%-11x] [%-.5x] [%11.5x] [%x] [%x] [%011.5x] [%-11.5x] [%x] [%x]"
 	#define ARGUMENTS	, 42, 42, 42, 42, 42, 42, 42, 42, -42, 42, -42, -42
 #elif TEST==190
+	#define STRING		"[%X] [%011X] [%0.5X] [%-11X] [%-.5X] [%11.5X] [%X] [%X] [%011.5X] [%-11.5X] [%X] [%X]"
+	#define ARGUMENTS	, 42, 42, 42, 42, 42, 42, 42, 42, -42, 42, -42, -42
+#elif TEST==191 //undefined
+	#define STRING		"[%-0c] [%03c] [%0.2c] [%-3c] [%-.2c] [%3.0c] [%-03c] [%-0.2c] [%03.2c] [%-3.2c] [%-03.2c] [%0-3.2c]"
+	#define ARGUMENTS	, 'L', 'o', 'r', 'e', 'm', '_', 'i', 'p', 's', 'u', 'm', '!'
+#elif TEST==192 //undefined
+	#define STRING		"[%-0s] [%011s] [%0.5s] [%-8s] [%-.5s] [%16.11s] [%-011s] [%-0.5s] [%07.5s] [%-11.6s] [%-06.4s] [%0-8.6s]"
+	#define ARGUMENTS	, "Lorem", "ipsum", "dolordolordolor", "sit", "amet,amet,amet", "consectetur", "adipiscing", "elit.elit.elit", "MorbiMorbi", "luctusluctus", "nisinisinisi", "ipsum,ipsum,ipsum,"
+#elif TEST==193 //undefined
+	#define STRING		"[%-0p] [%011p] [%0.5p] [%-11p] [%-.5p] [%11.5p] [%-011p] [%-0.5p] [%011.5p] [%-11.5p] [%-011.5p] [%0-11.5p]"
+	#define ARGUMENTS	, (void *)42, (void *)42, (void *)42, (void *)42, (void *)42, (void *)42, (void *)42, (void *)42, (void *)-42, (void *)42, (void *)-42, (void *)-42
+#elif TEST==194 //undefined
+	#define STRING		"[%-0d] [%011d] [%0.5d] [%-11d] [%-.5d] [%11.5d] [%-011d] [%-0.5d] [%011.5d] [%-11.5d] [%-011.5d] [%0-11.5d]"
+	#define ARGUMENTS	, 42, 42, 42, 42, 42, 42, 42, 42, -42, 42, -42, -42
+#elif TEST==195 //undefined
+	#define STRING		"[%-0i] [%011i] [%0.5i] [%-11i] [%-.5i] [%11.5i] [%-011i] [%-0.5i] [%011.5i] [%-11.5i] [%-011.5i] [%0-11.5i]"
+	#define ARGUMENTS	, 42, 42, 42, 42, 42, 42, 42, 42, -42, 42, -42, -42
+#elif TEST==196 //undefined
+	#define STRING		"[%-0u] [%011u] [%0.5u] [%-11u] [%-.5u] [%11.5u] [%-011u] [%-0.5u] [%011.5u] [%-11.5u] [%-011.5u] [%0-11.5u]"
+	#define ARGUMENTS	, 42, 42, 42, 42, 42, 42, 42, 42, -42, 42, -42, -42
+#elif TEST==197 //undefined
+	#define STRING		"[%-0x] [%011x] [%0.5x] [%-11x] [%-.5x] [%11.5x] [%-011x] [%-0.5x] [%011.5x] [%-11.5x] [%-011.5x] [%0-11.5x]"
+	#define ARGUMENTS	, 42, 42, 42, 42, 42, 42, 42, 42, -42, 42, -42, -42
+#elif TEST==198 //undefined
 	#define STRING		"[%-0X] [%011X] [%0.5X] [%-11X] [%-.5X] [%11.5X] [%-011X] [%-0.5X] [%011.5X] [%-11.5X] [%-011.5X] [%0-11.5X]"
 	#define ARGUMENTS	, 42, 42, 42, 42, 42, 42, 42, 42, -42, 42, -42, -42
 /* ====================================||==================================== *\
 ||																			  ||
 ||							 %#c	Alternate Form							  ||
-||								Tests 191 - 197								  ||
+||								Tests 199 - 206								  ||
 ||																			  ||
 \* ==============ft_printf=============||==============©Othello============== */
-#elif TEST==191
+#elif TEST==199
 	#define STRING		"%#x"
 	#define ARGUMENTS	, 0
-#elif TEST==192
+#elif TEST==200
 	#define STRING		"%#x"
 	#define ARGUMENTS	, 42
-#elif TEST==193
+#elif TEST==201
 	#define STRING		"%#x"
 	#define ARGUMENTS	, -1
-#elif TEST==194
+#elif TEST==202
 	#define STRING		"%#X"
 	#define ARGUMENTS	, 0
-#elif TEST==195
+#elif TEST==203
 	#define STRING		"%#X"
 	#define ARGUMENTS	, 42
-#elif TEST==196
+#elif TEST==204
 	#define STRING		"%#X"
 	#define ARGUMENTS	, -1
-#elif TEST==197
-	#define STRING		"%#s %#s\t%#p %#p %#p\t%#d %#d %#d\t%#i %#i %#i\t%#u %#u %#u\t%#x %#x %#x\t%#X %#X %#X\t%#%\t%#c %#c"
-	#define ARGUMENTS	,"0", "42", (void *)-1, (void *)0, (void *)42, -1, 0, 42, -1, 0, 42, -1, 0, 42, -1, 0, 42, -1, 0, 42, 42, 0
+#elif TEST==205
+	#define STRING		"%#x %#x %#x\t%#X %#X %#X"
+	#define ARGUMENTS	, -1, 0, 42, -1, 0, 42
+#elif TEST==206 //undefined
+	#define STRING		"%#s %#s\t%#p %#p %#p\t%#d %#d %#d\t%#i %#i %#i\t%#u %#u %#u\t%#%\t%#c %#c"
+	#define ARGUMENTS	,"0", "42", (void *)-1, (void *)0, (void *)42, -1, 0, 42, -1, 0, 42, -1, 0, 42, 42, 0
 /* ====================================||==================================== *\
 ||																			  ||
 ||								%' '	Spaced								  ||
-||								Tests 198 - 205								  ||
+||								Tests 207 - 215								  ||
 ||																			  ||
 \* ==============ft_printf=============||==============©Othello============== */
-#elif TEST==198
+#elif TEST==207
 	#define STRING		"% i"
 	#define ARGUMENTS	, 42
-#elif TEST==199
+#elif TEST==208
 	#define STRING		"% i"
 	#define ARGUMENTS	, -42
-#elif TEST==200
+#elif TEST==209
 	#define STRING		"%     i"
 	#define ARGUMENTS	, 42
-#elif TEST==201
+#elif TEST==210
 	#define STRING		"%     i"
 	#define ARGUMENTS	, -42
-#elif TEST==202
+#elif TEST==211
+	#define STRING		"%%% %%% %% %%\t[% d] [% d] [% d]\t[% i] [% i] [% i]"
+	#define ARGUMENTS	, -1, 0, 42, -1, 0, 42
+#elif TEST==212 //undefined
 	#define STRING		"% s"
 	#define ARGUMENTS	, ""
-#elif TEST==203
+#elif TEST==213 //undefined
 	#define STRING		"% s% s% s% s"
 	#define ARGUMENTS	, " - ", " ", "4", "2"
-#elif TEST==204
+#elif TEST==214 //undefined
 	#define STRING		" % s % s % s % s % s % s "
 	#define ARGUMENTS	, " - ", "", "4", "", "2 ", NULL
-#elif TEST==205
-	#define STRING		"%%% %%% %% %%\t[% s] [% s] [% s] [% s]\t[% p] [% p] [% p]\t[% d] [% d] [% d]\t[% i] [% i] [% i]\t[% u] [% u] [% u]\t[% x] [% x] [% x]\t[% X] [% X] [% X]\t[% c] [% c]"
-	#define ARGUMENTS	, "42", " ", "", NULL, (void *)-1, (void *)0, (void *)42, -1, 0, 42, -1, 0, 42, -1, 0, 42, -1, 0, 42, -1, 0, 42, 42, 0
+#elif TEST==215 //undefined
+	#define STRING		"[% s] [% s] [% s] [% s]\t[% p] [% p] [% p]\t[% u] [% u] [% u]\t[% x] [% x] [% x]\t[% X] [% X] [% X]\t[% c] [% c]"
+	#define ARGUMENTS	, "42", " ", "", NULL, (void *)-1, (void *)0, (void *)42, -1, 0, 42, -1, 0, 42, -1, 0, 42, 42, 0
 /* ====================================||==================================== *\
 ||																			  ||
 ||								  %+	Signed								  ||
-||								Tests 220 - 226								  ||
+||								Tests 216 - 222								  ||
 ||																			  ||
 \* ==============ft_printf=============||==============©Othello============== */
-#elif TEST==206
+#elif TEST==216
 	#define STRING		"%+i"
 	#define ARGUMENTS	, 42
-#elif TEST==207
+#elif TEST==217
 	#define STRING		"%+i"
 	#define ARGUMENTS	, -42
-#elif TEST==208
+#elif TEST==218
 	#define STRING		"\nINT_MIN - 1 %+d\tand\tINT_MAX + 1 %+d\nUINT_MAX %+d\tand\t-UINT_MAX %+d\nLONG_MIN %+d\tand\tLONG_MAX %+d\nULONG_MAX %+d\tand\t-ULONG_MAX %+d\n"
 	#define ARGUMENTS	, INT_MIN - 1, INT_MAX + 1, UINT_MAX, -UINT_MAX, LONG_MIN, LONG_MAX, ULONG_MAX, -ULONG_MAX
-#elif TEST==209
+#elif TEST==219
 	#define STRING		"\nINT_MIN - 1 %+i\tand\tINT_MAX + 1 %+i\nUINT_MAX %+i\tand\t-UINT_MAX %+i\nLONG_MIN %+i\tand\tLONG_MAX %+i\nULONG_MAX %+i\tand\t-ULONG_MAX %+i\n"
 	#define ARGUMENTS	, INT_MIN - 1, INT_MAX + 1, UINT_MAX, -UINT_MAX, LONG_MIN, LONG_MAX, ULONG_MAX, -ULONG_MAX
-#elif TEST==210
+#elif TEST==220 //undefined
 	#define STRING		"\nINT_MIN - 1 %+u\tand\tINT_MAX + 1 %+u\nUINT_MAX %+u\tand\t-UINT_MAX %+u\nLONG_MIN %+u\tand\tLONG_MAX %+u\nULONG_MAX %+u\tand\t-ULONG_MAX %+u\n"
 	#define ARGUMENTS	, INT_MIN - 1, INT_MAX + 1, UINT_MAX, -UINT_MAX, LONG_MIN, LONG_MAX, ULONG_MAX, -ULONG_MAX
-#elif TEST==211
+#elif TEST==221 //undefined
 	#define STRING		"\nINT_MIN - 1 %+x\tand\tINT_MAX + 1 %+x\nUINT_MAX %+x\tand\t-UINT_MAX %+x\nLONG_MIN %+x\tand\tLONG_MAX %+x\nULONG_MAX %+x\tand\t-ULONG_MAX %+x\n"
 	#define ARGUMENTS	, INT_MIN - 1, INT_MAX + 1, UINT_MAX, -UINT_MAX, LONG_MIN, LONG_MAX, ULONG_MAX, -ULONG_MAX
-#elif TEST==212
+#elif TEST==222 //undefined
 	#define STRING		"\nINT_MIN - 1 %+X\tand\tINT_MAX + 1 %+X\nUINT_MAX %+X\tand\t-UINT_MAX %+X\nLONG_MIN %+X\tand\tLONG_MAX %+X\nULONG_MAX %+X\tand\t-ULONG_MAX %+X\n"
 	#define ARGUMENTS	, INT_MIN - 1, INT_MAX + 1, UINT_MAX, -UINT_MAX, LONG_MIN, LONG_MAX, ULONG_MAX, -ULONG_MAX
 /* ====================================||==================================== *\
 ||																			  ||
 ||								  Combinations								  ||
-||								Tests 213 - 220								  ||
+||								Tests 223 - 230								  ||
 ||																			  ||
 \* ==============ft_printf=============||==============©Othello============== */
-#elif TEST==213
+#elif TEST==223 //undefined
 	#define STRING		"[%# c] [%#+c] [% +c] [%# +c] [%#+ c] [% #+c] [% +#c] [%+# c] [%+ #c]"
 	#define ARGUMENTS	, 'L', 'o', 'r', 'e', 'm', '_', 'i', 'p', 's'
-#elif TEST==214
+#elif TEST==224 //undefined
 	#define STRING		"[%# s] [%#+s] [% +s] [%# +s] [%#+ s] [% #+s] [% +#s] [%+# s] [%+ #s]"
 	#define ARGUMENTS	, "Lorem", "ipsum", "dolor", "sit", "amet,", "consectetur", "adipiscing", "elit.", "Morbi"
-#elif TEST==215
+#elif TEST==225 //undefined
 	#define STRING		"[%# p] [%#+p] [% +p] [%# +p] [%#+ p] [% #+p] [% +#p] [%+# p] [%+ #p]"
 	#define ARGUMENTS	, (void *)42, (void *)42, (void *)42, (void *)42, (void *)42, (void *)42, (void *)42, (void *)42, (void *)42
-#elif TEST==216
+#elif TEST==226 //undefined
 	#define STRING		"[%# d] [%#+d] [% +d] [%# +d] [%#+ d] [% #+d] [% +#d] [%+# d] [%+ #d]"
 	#define ARGUMENTS	, 42, 42, 42, 42, 42, 42, 42, 42, 42
-#elif TEST==217
+#elif TEST==227 //undefined
 	#define STRING		"[%# i] [%#+i] [% +i] [%# +i] [%#+ i] [% #+i] [% +#i] [%+# i] [%+ #i]"
 	#define ARGUMENTS	, 42, 42, 42, 42, 42, 42, 42, 42, 42
-#elif TEST==218
+#elif TEST==228 //undefined
 	#define STRING		"[%# u] [%#+u] [% +u] [%# +u] [%#+ u] [% #+u] [% +#u] [%+# u] [%+ #u]"
 	#define ARGUMENTS	, 42, 42, 42, 42, 42, 42, 42, 42, 42
-#elif TEST==219
+#elif TEST==229 //undefined
 	#define STRING		"[%# x] [%#+x] [% +x] [%# +x] [%#+ x] [% #+x] [% +#x] [%+# x] [%+ #x]"
 	#define ARGUMENTS	, 42, 42, 42, 42, 42, 42, 42, 42, 42
-#elif TEST==220
+#elif TEST==230 //undefined
 	#define STRING		"[%# X] [%#+X] [% +X] [%# +X] [%#+ X] [% #+X] [% +#X] [%+# X] [%+ #X]"
 	#define ARGUMENTS	, 42, 42, 42, 42, 42, 42, 42, 42, 42
 /* ====================================||==================================== *\
 ||																			  ||
 ||							   Full Combinations							  ||
-||								Tests  211 - 2xx							  ||
+||								Tests  231 - 264							  ||
 ||																			  ||
 \* ==============ft_printf=============||==============©Othello============== */
-#elif TEST==221
+#elif TEST==231
+	#define STRING		"[%-11c]\t[%-11c]"
+	#define ARGUMENTS	, 42, 42
+#elif TEST==232
+	#define STRING		"[%-11.5s]\t[%-11.5s]"
+	#define ARGUMENTS	, "Lorem Ipsum", "ipsum dolor sit amet"
+#elif TEST==233
+	#define STRING		"[%-11p]\t[%-11p]"
+	#define ARGUMENTS	, (void *)42, (void *)42
+#elif TEST==234
+	#define STRING		"[%-+11.5d]\t[%+-11.5d]\t[%0 11.5d]\t[% 011.5d]"
+	#define ARGUMENTS	, 42, 42, 42, 42
+#elif TEST==235
+	#define STRING		"[%-+11.5i]\t[%+-11.5i]\t[%0 11.5i]\t[% 011.5i]"
+	#define ARGUMENTS	, 42, 42, 42, 42
+#elif TEST==236
+	#define STRING		"[%-11.5u]\t[%-11.5u]\t[%011.5u]\t[%011.5u]"
+	#define ARGUMENTS	, 42, 42, 42, 42
+#elif TEST==237
+	#define STRING		"[%#-11.5x]\t[%-#11.5x]\t[%#011.5x]\t[%0#11.5x]"
+	#define ARGUMENTS	, 42, 42, 42, 42
+#elif TEST==238
+	#define STRING		"[%#-11.5X]\t[%-#11.5X]\t[%#011.5X]\t[%0#11.5X]"
+	#define ARGUMENTS	, 42, 42, 42, 42
+/* ====================================||==================================== *\
+\* ==============ft_printf=============||==============©Othello============== */
+#elif TEST==239 //undefined
+	#define STRING		"[%#-+11.5c]\t[%+-#11.5c]\t[%#0 11.5c]\t[% 0#11.5c]"
+	#define ARGUMENTS	, 42, 42, 42, 42
+#elif TEST==240 //undefined
+	#define STRING		"[%#-+11.5s]\t[%+-#11.5s]\t[%#0 11.5s]\t[% 0#11.5s]"
+	#define ARGUMENTS	, "Lorem Ipsum", "ipsum dolor sit amet", "Lorem Ipsum", "ipsum dolor sit amet"
+#elif TEST==241 //undefined
+	#define STRING		"[%#-+11.5p]\t[%+-#11.5p]\t[%#0 11.5p]\t[% 0#11.5p]"
+	#define ARGUMENTS	, (void *)42, (void *)42, (void *)42, (void *)42
+#elif TEST==242 //undefined
+	#define STRING		"[%#-+11.5d]\t[%+-#11.5d]\t[%#0 11.5d]\t[% 0#11.5d]"
+	#define ARGUMENTS	, 42, 42, 42, 42
+#elif TEST==243 //undefined
+	#define STRING		"[%#-+11.5i]\t[%+-#11.5i]\t[%#0 11.5i]\t[% 0#11.5i]"
+	#define ARGUMENTS	, 42, 42, 42, 42
+#elif TEST==244 //undefined
+	#define STRING		"[%#-+11.5u]\t[%+-#11.5u]\t[%#0 11.5u]\t[% 0#11.5u]"
+	#define ARGUMENTS	, 42, 42, 42, 42
+#elif TEST==245 //undefined
+	#define STRING		"[%#-+11.5x]\t[%+-#11.5x]\t[%#0 11.5x]\t[% 0#11.5x]"
+	#define ARGUMENTS	, 42, 42, 42, 42
+#elif TEST==246 //undefined
+	#define STRING		"[%#-+11.5X]\t[%+-#11.5X]\t[%#0 11.5X]\t[% 0#11.5X]"
+	#define ARGUMENTS	, 42, 42, 42, 42
+/* ====================================||==================================== *\
+\* ==============ft_printf=============||==============©Othello============== */
+#elif TEST==247 //undefined
 	#define STRING		"[%#0- +11.5c]\t[%+ -0#11.5c]"
 	#define ARGUMENTS	, 42, 42
-#elif TEST==222
+#elif TEST==248 //undefined
 	#define STRING		"[%#0- +11.5s]\t[%+ -0#11.5s]"
 	#define ARGUMENTS	, "Lorem Ipsum", "ipsum dolor sit amet"
-#elif TEST==223
-	#define STRING		"[%#0- +11.5]\t[%+ -0#11.5]"
+#elif TEST==249 //undefined
+	#define STRING		"[%#0- +11.5p]\t[%+ -0#11.5p]"
 	#define ARGUMENTS	, (void *)42, (void *)42
-#elif TEST==224
+#elif TEST==250 //undefined
 	#define STRING		"[%#0- +11.5d]\t[%+ -0#11.5d]"
 	#define ARGUMENTS	, 42, 42
-#elif TEST==225
+#elif TEST==251 //undefined
 	#define STRING		"[%#0- +11.5i]\t[%+ -0#11.5i]"
 	#define ARGUMENTS	, 42, 42
-#elif TEST==226
+#elif TEST==252 //undefined
 	#define STRING		"[%#0- +11.5u]\t[%+ -0#11.5u]"
 	#define ARGUMENTS	, 42, 42
-#elif TEST==227
+#elif TEST==253 //undefined
 	#define STRING		"[%#0- +11.5x]\t[%+ -0#11.5x]"
 	#define ARGUMENTS	, 42, 42
-#elif TEST==228
+#elif TEST==254 //undefined
 	#define STRING		"[%#0- +11.5X]\t[%+ -0#11.5X]"
 	#define ARGUMENTS	, 42, 42
+
 #else
 	#define STRING		"Incorrect input found for test %d\n"
 	#define ARGUMENTS	, TEST

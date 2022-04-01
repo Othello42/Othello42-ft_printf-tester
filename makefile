@@ -5,9 +5,8 @@ CFLAGS =	-Wall -Wextra -Werror -Wno-everything
 
 PROJECT =	../ft_printf/
 SRC =		-L$(PROJECT) -lftprintf
-LIB =		$(PROJECT)ft_printf.h
+HEADER =	$(PROJECT)ft_printf.h
 
-# TEST_SRC =	strings_print.c
 TEST_OUT =	test.out
 TEST_FILES =	temp_printf \
 				temp_printf_ret \
@@ -18,9 +17,9 @@ TEST_FILES =	temp_printf \
 MAN_START =		1
 MAN_END =		84
 BON_START =		100
-BON_END =		209
-TEST_START =	200
-TEST_END =		209
+BON_END =		254
+TEST_START =	231
+TEST_END =		238
 
 all: header headman man headbon bon
 
@@ -32,30 +31,30 @@ t: header test
 
 man:
 	@number=$(MAN_START); while [[ $$number -le $(MAN_END) ]] ; do \
-	$(CC) $(CFLAGS) frame.c -DFRAME=0 -DPROJECT='"$(PROJECT)"' -DTEST=$$number -o $(TEST_OUT) && ./$(TEST_OUT); \
-	$(CC) -Wno-everything $(CFLAGS) string_print_printf.c $(SRC) -DFRAME=0 -DTEST=$$number -DLIB='"$(LIB)"' -o $(TEST_OUT) && ./$(TEST_OUT) > temp_printf; \
-	$(CC) string_print_ft_printf.c $(SRC) -DFRAME=0 -DTEST=$$number -DLIB='"$(LIB)"' -o $(TEST_OUT) && ./$(TEST_OUT) > temp_ft_printf; \
-	$(CC) $(CFLAGS) strings_compare.c -DFRAME=0 -DTEST=$$number -DLIB='"$(LIB)"' -o $(TEST_OUT) && ./$(TEST_OUT); \
+	$(CC) $(CFLAGS) frame.c 						-DTEST=$$number -DFRAME=0 -DPROJECT='"$(PROJECT)"'	-o $(TEST_OUT) && ./$(TEST_OUT); \
+	$(CC) $(CFLAGS) string_print_printf.c $(SRC)	-DTEST=$$number -DHEADER='"$(HEADER)"'				-o $(TEST_OUT) && ./$(TEST_OUT) > temp_printf; \
+	$(CC) $(CFLAGS) string_print_ft_printf.c $(SRC)	-DTEST=$$number -DHEADER='"$(HEADER)"'				-o $(TEST_OUT) && ./$(TEST_OUT) > temp_ft_printf; \
+	$(CC) $(CFLAGS) strings_compare.c				-DTEST=$$number										-o $(TEST_OUT) && ./$(TEST_OUT); \
 	((number = number + 1)) ; \
 	done
 	@rm $(TEST_FILES) $(TEST_OUT);
 
 bon:
 	@number=$(BON_START); while [[ $$number -le $(BON_END) ]] ; do \
-	$(CC) $(CFLAGS) frame.c -DFRAME=0 -DPROJECT='"$(PROJECT)"' -DTEST=$$number -o $(TEST_OUT) && ./$(TEST_OUT); \
-	$(CC) $(CFLAGS) string_print_printf.c $(SRC) -DFRAME=0 -DTEST=$$number -DLIB='"$(LIB)"' -o $(TEST_OUT) && ./$(TEST_OUT) > temp_printf; \
-	$(CC) $(CFLAGS) string_print_ft_printf.c $(SRC) -DFRAME=0 -DTEST=$$number -DLIB='"$(LIB)"' -o $(TEST_OUT) && ./$(TEST_OUT) > temp_ft_printf; \
-	$(CC) $(CFLAGS) strings_compare.c -DFRAME=0 -DTEST=$$number -DLIB='"$(LIB)"' -o $(TEST_OUT) && ./$(TEST_OUT); \
+	$(CC) $(CFLAGS) frame.c 						-DTEST=$$number -DFRAME=0 -DPROJECT='"$(PROJECT)"'	-o $(TEST_OUT) && ./$(TEST_OUT); \
+	$(CC) $(CFLAGS) string_print_printf.c $(SRC)	-DTEST=$$number -DHEADER='"$(HEADER)"'				-o $(TEST_OUT) && ./$(TEST_OUT) > temp_printf; \
+	$(CC) $(CFLAGS) string_print_ft_printf.c $(SRC)	-DTEST=$$number -DHEADER='"$(HEADER)"'				-o $(TEST_OUT) && ./$(TEST_OUT) > temp_ft_printf; \
+	$(CC) $(CFLAGS) strings_compare.c				-DTEST=$$number										-o $(TEST_OUT) && ./$(TEST_OUT); \
 	((number = number + 1)) ; \
 	done
 	@rm $(TEST_FILES) $(TEST_OUT);
 	
-test: header
+test:
 	@number=$(TEST_START); while [[ $$number -le $(TEST_END) ]] ; do \
-	$(CC) $(CFLAGS) frame.c -DFRAME=0 -DPROJECT='"$(PROJECT)"' -DTEST=$$number -o $(TEST_OUT) && ./$(TEST_OUT); \
-	$(CC) -Wno-everything $(CFLAGS) string_print_printf.c $(SRC) -DFRAME=0 -DTEST=$$number -DLIB='"$(LIB)"' -o $(TEST_OUT) && ./$(TEST_OUT) > temp_printf; \
-	$(CC) $(CFLAGS) string_print_ft_printf.c $(SRC) -DFRAME=0 -DTEST=$$number -DLIB='"$(LIB)"' -o $(TEST_OUT) && ./$(TEST_OUT) > temp_ft_printf; \
-	$(CC) $(CFLAGS) strings_compare.c -DFRAME=0 -DTEST=$$number -DLIB='"$(LIB)"' -o $(TEST_OUT) && ./$(TEST_OUT); \
+	$(CC) $(CFLAGS) frame.c 						-DTEST=$$number -DFRAME=0 -DPROJECT='"$(PROJECT)"'	-o $(TEST_OUT) && ./$(TEST_OUT); \
+	$(CC) $(CFLAGS) string_print_printf.c $(SRC)	-DTEST=$$number -DHEADER='"$(HEADER)"'				-o $(TEST_OUT) && ./$(TEST_OUT) > temp_printf; \
+	$(CC) $(CFLAGS) string_print_ft_printf.c $(SRC)	-DTEST=$$number -DHEADER='"$(HEADER)"'				-o $(TEST_OUT) && ./$(TEST_OUT) > temp_ft_printf; \
+	$(CC) $(CFLAGS) strings_compare.c				-DTEST=$$number										-o $(TEST_OUT) && ./$(TEST_OUT); \
 	((number = number + 1)) ; \
 	done
 	@rm $(TEST_FILES) $(TEST_OUT);

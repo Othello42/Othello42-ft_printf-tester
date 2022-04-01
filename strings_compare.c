@@ -3,6 +3,7 @@
 void		string_compare(void);
 static void	read_file(char *buff, char *file, int size);
 static void print_error(char *ft, char *comp, int val_ft, int val_comp);
+static int	is_undefined_behavior(void);
 static void	memory_compare(char *ft, char *comp, int val_ft, int val_comp, char *leaks);
 int	errorlog_fd(int command);
 
@@ -61,20 +62,45 @@ static void	read_file(char *buff, char *file, int size)
 
 static void	memory_compare(char *ft, char *comp, int val_ft, int val_comp, char *leaks)
 {
+	if (is_undefined_behavior())
+		printf(C_YELLOW);
+	else
+		printf(C_RED);
 	if (strcmp(ft, comp))
 	{
-		printf(C_RED"[KO]"C_RESET" ");
+		printf("[KO]"C_RESET" ");
 		print_error(ft, comp, val_ft, val_comp);
 	}
 	else if (val_ft != val_comp)
 	{
-		printf(C_RED"[#KO]"C_RESET" ");
+		printf("[#KO]"C_RESET" ");
 		print_error(ft, comp, val_ft, val_comp);
 	}
 	else if (strcmp(leaks, " 0 leaks for 0 total leaked bytes.\n"))
 		printf(C_ORANGE"[LK]"C_RESET" ");
 	else
 		printf(C_GREEN"[OK]"C_RESET" ");
+}
+
+static int	is_undefined_behavior(void)
+{
+	if (TEST >= 114 && TEST <= 116) //0padded %0p %0s %0c
+		return (1);
+	if ((TEST >= 170 && TEST <= 175) || TEST == 181) //.Precision %.[#]c %.[#]p
+		return (1);
+	if (TEST >= 191 && TEST <= 198) //bad combo's
+		return (1);
+	if (TEST == 206) //Alternate form %#[cspdiu]
+		return (1);
+	if (TEST >= 212 && TEST <= 215) //spaced % [cspuxX]
+		return (1);
+	if (TEST >= 220 && TEST <= 222) //signed %+[uxX]
+		return (1);
+	if (TEST >= 223 && TEST <= 230) //combinations
+		return (1);
+	if (TEST >= 239 && TEST <= 264) //full combinations
+		return (1);
+	return (0);
 }
 
 static void	print_error(char *ft, char *comp, int val_ft, int val_comp)

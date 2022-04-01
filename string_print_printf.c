@@ -6,7 +6,7 @@
 #include <unistd.h> //close
 #include <stdlib.h> //system
 
-#include LIB
+#include HEADER
 
 void	print_strings(void);
 
