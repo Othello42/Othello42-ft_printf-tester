@@ -86,19 +86,19 @@ static int	is_undefined_behavior(void)
 {
 	if (TEST >= 114 && TEST <= 116) //0padded %0p %0s %0c
 		return (1);
-	if ((TEST >= 170 && TEST <= 175) || TEST == 181) //.Precision %.[#]c %.[#]p
+	if ((TEST >= 169 && TEST <= 174) || TEST == 180) //.Precision %.[#]c %.[#]p
 		return (1);
-	if (TEST >= 191 && TEST <= 198) //bad combo's
+	if (TEST >= 190 && TEST <= 197) //bad combo's
 		return (1);
-	if (TEST == 206) //Alternate form %#[cspdiu]
+	if (TEST == 205) //Alternate form %#[cspdiu]
 		return (1);
-	if (TEST >= 212 && TEST <= 215) //spaced % [cspuxX]
+	if (TEST >= 211 && TEST <= 214) //spaced % [cspuxX]
 		return (1);
-	if (TEST >= 220 && TEST <= 222) //signed %+[uxX]
+	if (TEST >= 219 && TEST <= 221) //signed %+[uxX]
 		return (1);
-	if (TEST >= 223 && TEST <= 230) //combinations
+	if (TEST >= 222 && TEST <= 229) //combinations
 		return (1);
-	if (TEST >= 239 && TEST <= 264) //full combinations
+	if (TEST >= 238 && TEST <= 253) //full combinations
 		return (1);
 	return (0);
 }

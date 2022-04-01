@@ -23,7 +23,7 @@ int	main(void)
 		printf(C_YELLOW"[KO]"C_RESET"\tTest failed on undefined behavior. This is fine.\n");
 		printf(C_DGREY"[KO]"C_RESET"\tTest failed to execute.\n");
 		printf("\n");
-		printf(C_ORANGE"[LK]"C_RESET"\tFunction "C_ORANGE"does"C_RESET"/"C_BLUE"doesn't"C_RESET" contain leaks at some point.\n");
+		printf(C_ORANGE"[LK]"C_RESET"\tFunction contains leaks at some point.\n");
 		printf("\n");
 		printf("Read "C_BLUE"errorlog.txt"C_RESET" for more information.\n");
 		close(open("errorlog.txt", O_TRUNC | O_CREAT, 0666));
