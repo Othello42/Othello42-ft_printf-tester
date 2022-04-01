@@ -46,7 +46,7 @@ int	main(void)
 	if (FRAME == 2)
 		printf("\n\t"C_SUBHEAD"Mandatory "C_RESET" ");
 	if (FRAME == 3)
-		printf(C_BOLD"\n\n\t"C_SUBHEAD"Bonus"C_RESET"\n");
+		printf(C_BOLD"\n\n\t"C_SUBHEAD"Bonus "C_RESET"\n");
 /* ====================================||==================================== *\
 ||																			  ||
 ||								   MANDATORY								  ||
