@@ -17,11 +17,11 @@ int	main(void)
 	{
 		printf("\n\t"C_HEADER" Othello's ft_printf Tester "C_RESET"\n\n");
 		printf(C_BOLD"\tLegend"C_RESET"\n");
-		printf(C_GREEN"[OK]"C_RESET"\tTest checks out.\n");
+		printf(C_OK"[OK]"C_RESET"\tTest checks out.\n");
 		printf(C_RED"[KO]"C_RESET"\tTest has failed on basic functionality.\n");
 		printf(C_RED"[#KO]"C_RESET"\tTest gave incorrect return value.\n");
 		printf(C_YELLOW"[KO]"C_RESET"\tTest failed on undefined behavior. This is fine.\n");
-		printf(C_DGREY"[KO]"C_RESET"\tTest failed to execute.\n");
+		printf(C_DGRAY"[KO]"C_RESET"\tTest failed to execute.\n");
 		printf("\n");
 		printf(C_ORANGE"[LK]"C_RESET"\tFunction contains leaks at some point.\n");
 		printf("\n");
@@ -44,9 +44,9 @@ int	main(void)
 		printf(C_RESET"\n");
 	}
 	if (FRAME == 2)
-		printf(C_BOLD"\n\tMandatory"C_RESET" ");
+		printf("\n\t"C_SUBHEAD"Mandatory "C_RESET" ");
 	if (FRAME == 3)
-		printf(C_BOLD"\n\n\tBonus"C_RESET"\n");
+		printf(C_BOLD"\n\n\t"C_SUBHEAD"Bonus"C_RESET"\n");
 /* ====================================||==================================== *\
 ||																			  ||
 ||								   MANDATORY								  ||

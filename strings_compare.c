@@ -79,7 +79,7 @@ static void	memory_compare(char *ft, char *comp, int val_ft, int val_comp, char 
 	else if (strcmp(leaks, " 0 leaks for 0 total leaked bytes.\n"))
 		printf(C_ORANGE"[LK]"C_RESET" ");
 	else
-		printf(C_GREEN"[OK]"C_RESET" ");
+		printf(C_OK"[OK]"C_RESET" ");
 }
 
 static int	is_undefined_behavior(void)
