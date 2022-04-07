@@ -1,8 +1,9 @@
+
 #include "h_colors.h"
 
 #include <stdio.h> //printf
 #include <fcntl.h> //open
-#include <unistd.h> //closes
+#include <unistd.h> //close
 #include <stdlib.h>  //system
 
 #if TEST >= 0 && TEST < 100
@@ -54,25 +55,25 @@ int	main(void)
 \* ==============ft_printf=============||==============©Othello============== */
 	if (TEST == 1)
 		printf(C_BOLD"\n"NAMESIZE C_RESET"\t",			"Basic Write");
-	if (TEST == 6)
+	if (TEST == 7)
 		printf(C_BOLD"\n"NAMESIZE"%%c"C_RESET"\t",		"Character");
-	if (TEST == 10)
+	if (TEST == 11)
 		printf(C_BOLD"\n"NAMESIZE"%%s"C_RESET"\t",		"String");
-	if (TEST == 18)
+	if (TEST == 19)
 		printf(C_BOLD"\n"NAMESIZE"%%p"C_RESET"\t",		"Address");
-	if (TEST == 29)
+	if (TEST == 30)
 		printf(C_BOLD"\n"NAMESIZE"%%d"C_RESET"\t",		"Decimal");
-	if (TEST == 39)
+	if (TEST == 40)
 		printf(C_BOLD"\n"NAMESIZE"%%i"C_RESET"\t",		"Integer");
-	if (TEST == 49)
+	if (TEST == 50)
 		printf(C_BOLD"\n"NAMESIZE"%%u"C_RESET"\t",		"Unsigned Dec");
-	if (TEST == 59)
+	if (TEST == 60)
 		printf(C_BOLD"\n"NAMESIZE"%%x"C_RESET"\t",		"Lowercase Hex");
-	if (TEST == 69)
+	if (TEST == 70)
 		printf(C_BOLD"\n"NAMESIZE"%%X"C_RESET"\t",		"Uppercase Hex");
-	if (TEST == 79)
+	if (TEST == 80)
 		printf(C_BOLD"\n"NAMESIZE"%%%%"C_RESET"\t",		"%%");
-	if (TEST == 83)
+	if (TEST == 84)
 		printf(C_BOLD"\n"NAMESIZE C_RESET"\t",			"Miscelaneous");
 /* ====================================||==================================== *\
 ||																			  ||
@@ -85,74 +86,74 @@ int	main(void)
 		printf(C_BOLD"\n%s"C_RESET" ",			"Zero Padded:");
 	if (TEST == 100)
 		printf(C_BOLD"\n"NAMESIZE C_RESET" ", "%0i");
-	if (TEST == 108)
+	if (TEST == 106)
 		printf(C_BOLD"\n"NAMESIZE C_RESET" ", "all");
-	if (TEST == 117)
+	if (TEST == 115)
 		printf(C_BOLD"\n%s"C_RESET" ",			"Left Adjusted:");
-	if (TEST == 117)
+	if (TEST == 115)
 		printf(C_BOLD"\n"NAMESIZE C_RESET" ", "%-[#]c");
-	if (TEST == 120)
+	if (TEST == 118)
 		printf(C_BOLD"\n"NAMESIZE C_RESET" ", "%-[#]s");
-	if (TEST == 123)
+	if (TEST == 121)
 		printf(C_BOLD"\n"NAMESIZE C_RESET" ", "%-[#]i");
-	if (TEST == 127)
+	if (TEST == 125)
 		printf(C_BOLD"\n"NAMESIZE C_RESET" ", "all");
-	if (TEST == 136)
+	if (TEST == 133)
 		printf(C_BOLD"\n%s"C_RESET" ",			"Field Width:");
-	if (TEST == 136)
+	if (TEST == 133)
 		printf(C_BOLD"\n"NAMESIZE C_RESET" ", "%[#]c");
-	if (TEST == 139)
+	if (TEST == 136)
 		printf(C_BOLD"\n"NAMESIZE C_RESET" ", "%[#]s");
-	if (TEST == 142)
+	if (TEST == 139)
 		printf(C_BOLD"\n"NAMESIZE C_RESET" ", "%[#]i");
-	if (TEST == 145)
+	if (TEST == 142)
 		printf(C_BOLD"\n"NAMESIZE C_RESET" ", "all");
-	if (TEST == 154)
+	if (TEST == 151)
 		printf(C_BOLD"\n%s"C_RESET" ",			".Precision:");
-	if (TEST == 154)
+	if (TEST == 151)
 		printf(C_BOLD"\n"NAMESIZE C_RESET" ", "%.[#]s");
-	if (TEST == 160)
+	if (TEST == 157)
 		printf(C_BOLD"\n"NAMESIZE C_RESET" ", "%.[#]i");
-	if (TEST == 169)
+	if (TEST == 164)
 		printf(C_BOLD"\n"NAMESIZE C_RESET" ", "%.[#]c");
-	if (TEST == 175)
+	if (TEST == 170)
 		printf(C_BOLD"\n"NAMESIZE C_RESET" ", "all");
-	if (TEST == 182)
+	if (TEST == 177)
 		printf(C_BOLD"\n%s"C_RESET" ",			"Combinations:");
-	if (TEST == 182)
+	if (TEST == 177)
 		printf(C_BOLD"\n"NAMESIZE C_RESET" ", "%0-[#].[#]");
-	if (TEST == 190)
+	if (TEST == 185)
 		printf(C_BOLD"\n"NAMESIZE C_RESET" ", "");
 /* ====================================||==================================== *\
 \* ==============ft_printf=============||==============©Othello============== */
-	if (TEST == 198)
+	if (TEST == 193)
 		printf(C_BOLD"\n\n"NAMESIZE"  # +"C_RESET" ", "Bonus Part 2:");
-	if (TEST == 198)
+	if (TEST == 193)
 		printf(C_BOLD"\n%s"C_RESET" ",			"Alternate Form:");
-	if (TEST == 198)
+	if (TEST == 193)
 		printf(C_BOLD"\n"NAMESIZE C_RESET" ", "%#x");
-	if (TEST == 201)
+	if (TEST == 196)
 		printf(C_BOLD"\n"NAMESIZE C_RESET" ", "%#X");
-	if (TEST == 204)
+	if (TEST == 199)
 		printf(C_BOLD"\n"NAMESIZE C_RESET" ", "all");
-	if (TEST == 206)
+	if (TEST == 201)
 		printf(C_BOLD"\n%s"C_RESET" ",			"Spaced:");
-	if (TEST == 206)
+	if (TEST == 201)
 		printf(C_BOLD"\n"NAMESIZE C_RESET" ", "% %");
-	if (TEST == 215)
+	if (TEST == 210)
 		printf(C_BOLD"\n%s"C_RESET" ",			"Signed:");
-	if (TEST == 215)
+	if (TEST == 210)
 		printf(C_BOLD"\n"NAMESIZE C_RESET" ", "%+");
-	if (TEST == 222)
+	if (TEST == 217)
 		printf(C_BOLD"\n%s"C_RESET" ",			"Combinations:");
-	if (TEST == 222)
+	if (TEST == 217)
 		printf(C_BOLD"\n"NAMESIZE C_RESET" ", "%# +");
-	if (TEST == 230)
+	if (TEST == 225)
 		printf(C_BOLD"\n\n"NAMESIZE C_RESET" ", "Full Bonus");
-	if (TEST == 230)
+	if (TEST == 225)
 		printf(C_BOLD"\n"NAMESIZE C_RESET" ", "%#0- +[#].[#]");
-	if (TEST == 238)
+	if (TEST == 234)
 		printf(C_BOLD"\n"NAMESIZE C_RESET" ", "");
-	if (TEST == 246)
+	if (TEST == 242)
 		printf(C_BOLD"\n"NAMESIZE C_RESET" ", "");
 }
