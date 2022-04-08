@@ -109,14 +109,14 @@ static void	print_bonus_multi(void)
 	int	fd;
 
 	ret = 0;
-	ret += printf("[%-11c]\t[%-11c]\n", 42, 42);
-	ret += printf("[%-11.5s]\t[%-11.5s]\n", "Lorem Ipsum", "ipsum dolor sit amet");
-	ret += printf("[%-11p]\t[%-11p]\n", (void *)42, (void *)42);
-	ret += printf("[%-+11.5d]\t[%+-11.5d]\t[%0 11.5d]\t[% 011.5d]\n", 42, 42, 42, 42);
-	ret += printf("[%-+11.5i]\t[%+-11.5i]\t[%0 11.5i]\t[% 011.5i]\n", 42, 42, 42, 42);
-	ret += printf("[%-11.5u]\t[%-11.5u]\t[%011.5u]\t[%011.5u]\n", 42, 42, 42, 42);
-	ret += printf("[%#-11.5x]\t[%-#11.5x]\t[%#011.5x]\t[%0#11.5x]\n", 42, 42, 42, 42);
-	ret += printf("[%#-11.5X]\t[%-#11.5X]\t[%#011.5X]\t[%0#11.5X]\n", 42, 42, 42, 42);
+	ret += PRINTER("[%-11c]\t[%-11c]\n", 42, 42);
+	ret += PRINTER("[%-11.5s]\t[%-11.5s]\n", "Lorem Ipsum", "ipsum dolor sit amet");
+	ret += PRINTER("[%-11p]\t[%-11p]\n", (void *)42, (void *)42);
+	ret += PRINTER("[%-+11.5d]\t[%+-11.5d]\t[%0 11.5d]\t[% 011.5d]\n", 42, 42, 42, 42);
+	ret += PRINTER("[%-+11.5i]\t[%+-11.5i]\t[%0 11.5i]\t[% 011.5i]\n", 42, 42, 42, 42);
+	ret += PRINTER("[%-11.5u]\t[%-11.5u]\t[%011.5u]\t[%011.5u]\n", 42, 42, 42, 42);
+	ret += PRINTER("[%#-11.5x]\t[%-#11.5x]\t[%#011.5x]\t[%0#11.5x]\n", 42, 42, 42, 42);
+	ret += PRINTER("[%#-11.5X]\t[%-#11.5X]\t[%#011.5X]\t[%0#11.5X]\n", 42, 42, 42, 42);
 	fd = open ("temp_"PTR(NAME)"_ret", O_RDWR | O_TRUNC | O_CREAT, 0666);
 	dprintf(fd, "%i", ret);
 	if (!strcmp(PTR(NAME), "ft_printf"))
