@@ -327,7 +327,10 @@
 #elif TEST==85
 	#define STRING		"%c%sipsum %p dolor %d sit %i amet, %u consectetur %x adipiscing %X elit. %%\n"
 	#define ARGUMENTS	, 'L', "orem ", (void *)1, 22, 333, 4444, 5555, 66666
-#elif TEST==86 //multilinetest
+#elif TEST==86
+	#define STRING		"[%s][%s][%s][%c][%c][%c][%i][%i][%i]\n"
+	#define ARGUMENTS	, "Lorem ipsum", "Lorem ipsum", "Lorem ipsum", 42, 42, 42, 42, 42, 42
+#elif TEST==87 //multilinetest
 	#define STRING		"Multi line test"
 	#define ARGUMENTS	
 /* ====================================||==================================== *\

@@ -24,7 +24,7 @@ int	main(void)
 	signal(SIGSEGV, ft_error);
 	if (TEST == 6)
 		print_man_multi();
-	else if (TEST == 86)
+	else if (TEST == 87)
 		print_man_multi2();
 	else if (TEST == 233)
 		print_bonus_multi();
