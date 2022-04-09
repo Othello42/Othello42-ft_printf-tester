@@ -56,8 +56,9 @@ endif
 endif
 
 header:
-	@$(CC) $(CFLAGS) ftp_test_frame.c -DFRAME=1 -DPROJECT='"$(PROJECT)"' -DTEST=0 -o $(TEST_OUT) && ./$(TEST_OUT)
 	@make re -C $(PROJECT)
+	@$(CC) $(CFLAGS) ftp_test_frame.c -DFRAME=1 -DPROJECT='"$(PROJECT)"' -DTEST=0 -o $(TEST_OUT) && ./$(TEST_OUT)
+	@make -C $(PROJECT)
 
 headman:
 	@$(CC) $(CFLAGS) ftp_test_frame.c -DFRAME=2 -DPROJECT='"$(PROJECT)"' -DTEST=0 -o $(TEST_OUT) && ./$(TEST_OUT)
