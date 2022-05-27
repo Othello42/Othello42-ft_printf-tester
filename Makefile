@@ -22,7 +22,7 @@ BON_START =		100
 BON_END =		249
 #adjust to test specific parts, see h_test_strings.h for more information.
 TEST_START =	225
-TEST_END =		225
+TEST_END =		233
 
 all: header headman man headbon bon
 
