@@ -7,7 +7,7 @@ CFLAGS =	-Wall -Wextra -Werror
 PROJECT =	../ft_printf/
 SRC =		ftp_test_utils.c \
 			-L$(PROJECT) -lftprintf
-HEADER =	$(PROJECT)ft_printf.h
+HEAD_INCL =	$(shell find $(PROJECT) -type d | sed -e 's/^/-I/g')
 
 TEST_OUT =	test.out
 TEST_FILES =	temp_printf \
@@ -22,7 +22,7 @@ BON_START =		100
 BON_END =		249
 #adjust to test specific parts, see h_test_strings.h for more information.
 TEST_START =	225
-TEST_END =		233
+TEST_END =		225
 
 all: header headman man headbon bon
 
@@ -45,10 +45,10 @@ testloop:
 ifdef START
 ifdef END
 	@number=$(START); while [[ $$number -le $(END) ]] ; do \
-	$(CC) $(CFLAGS)					$(SRC) ftp_test_frame.c				-DTEST=$$number -DFRAME=0 -DPROJECT='"$(PROJECT)"'				-o $(TEST_OUT) && ./$(TEST_OUT); \
-	$(CC) $(CFLAGS) -Wno-everything	$(SRC) ftp_test_string_print.c		-DTEST=$$number -DHEADER='"$(HEADER)"' -DPRINTER='printf'		-o $(TEST_OUT) && ./$(TEST_OUT) > temp_printf; \
-	$(CC) $(CFLAGS)					$(SRC) ftp_test_string_print.c		-DTEST=$$number -DHEADER='"$(HEADER)"' -DPRINTER='ft_printf'	-o $(TEST_OUT) && ./$(TEST_OUT) > temp_ft_printf; \
-	$(CC) $(CFLAGS)					$(SRC) ftp_test_strings_compare.c	-DTEST=$$number													-o $(TEST_OUT) && ./$(TEST_OUT); \
+	$(CC) $(CFLAGS)					$(SRC) $(HEAD_INCL) ftp_test_frame.c			-DTEST=$$number -DFRAME=0 -DPROJECT='"$(PROJECT)"'	-o $(TEST_OUT) && ./$(TEST_OUT); \
+	$(CC) $(CFLAGS) -Wno-everything	$(SRC) $(HEAD_INCL) ftp_test_string_print.c		-DTEST=$$number -DPRINTER='printf'					-o $(TEST_OUT) && ./$(TEST_OUT) > temp_printf; \
+	$(CC) $(CFLAGS)					$(SRC) $(HEAD_INCL) ftp_test_string_print.c		-DTEST=$$number -DPRINTER='ft_printf'				-o $(TEST_OUT) && ./$(TEST_OUT) > temp_ft_printf; \
+	$(CC) $(CFLAGS)					$(SRC) $(HEAD_INCL) ftp_test_strings_compare.c	-DTEST=$$number										-o $(TEST_OUT) && ./$(TEST_OUT); \
 	((number = number + 1)) ; \
 	done
 	@rm $(TEST_FILES) $(TEST_OUT);

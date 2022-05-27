@@ -11,7 +11,8 @@
 #define PTR_(NAME)	#NAME
 #define PTR(NAME)	PTR_(NAME)
 
-#include HEADER
+// #include HEADER
+#include <ft_printf.h>
 
 static void	print_strings(void);
 static void	print_man_multi(void);
